@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ReForm50 – 7-Day Freedom Challenge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #021920;
+      --card: #06242e;
+      --card-soft: #08313d;
+      --accent: #ffc94a;
+      --accent-soft: rgba(255, 201, 74, 0.12);
+      --text-main: #f4f7fb;
+      --text-soft: #c8d3df;
+      --border-soft: #164452;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .logo { height: 40px; width: auto; }
+
+    .badge {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: rgba(0,0,0,0.4);
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .lang-toggle {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: rgba(0,0,0,0.4);
+      color: var(--accent);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    h1 { font-size: 26px; margin: 8px 0 4px; }
+    .sub { font-size: 14px; color: var(--text-soft); }
+
+    .hero-copy { margin-bottom: 24px; }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.1s ease;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #1a1608;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.45);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--accent);
+      border-color: var(--accent-soft);
+    }
+    .btn-ghost:hover { background: var(--accent-soft); }
+
+    .mini-line {
+      font-size: 11px;
+      color: var(--text-soft);
+      margin-top: 6px;
+    }
+
+    .section-title { font-size: 18px; margin: 0 0 6px; }
+
+    .card {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 18px 16px;
+      margin-bottom: 18px;
+      border: 1px solid var(--border-soft);
+    }
+
+    .card-soft { background: var(--card-soft); }
+
+    .kicker {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .photo-card {
+      background: rgba(0,0,0,0.25);
+      border-radius: 8px;
+      padding: 10px;
+      border: 1px solid var(--border-soft);
+    }
+
+    .photo-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .photo-box {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #000;
+      margin-bottom: 8px;
+    }
+
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-caption-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .photo-caption-body {
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    ul {
+      margin: 8px 0 0 18px;
+      padding: 0;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    ul li { margin-bottom: 4px; }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      color: var(--accent);
+      background: rgba(0,0,0,0.3);
+    }
+
+    .gold { color: var(--accent); }
+    a.gold { text-decoration: none; }
+
+    .form-wrapper { margin-top: 12px; }
+    .form-row { margin-bottom: 10px; }
+
+    .form-label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 9px 10px;
+      border-radius: 4px;
+      border: 1px solid #c0ccd9;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      h1 { font-size: 22px; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <!-- TOP / HERO -->
+    <header class="top-bar">
+      <img src="reform50-logo.png" alt="ReForm50" class="logo" />
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+        <div class="badge" data-i18n="badge">NDG • WALKING-FIRST RECOVERY</div>
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Toggle language">FR</button>
+      </div>
+    </header>
+
+    <div class="hero-copy">
+      <h1 data-i18n="hero_h1">From hospital bed to walking NDG in a weighted vest.</h1>
+      <p class="sub" data-i18n="hero_sub">
+        A simple 7-Day Freedom Challenge, built for NDG women who want a safe, structured path back to strength —
+        starting with walks, gentle moves, and Freedom Points.
+      </p>
+      <div class="hero-buttons">
+        <a href="#challenge" class="btn btn-primary" data-i18n="hero_btn_primary">Start the 7-Day Freedom Challenge</a>
+        <a href="#story" class="btn btn-ghost" data-i18n="hero_btn_ghost">See my Before / After story</a>
+      </div>
+      <div class="mini-line" data-i18n="hero_mini">Free for NDG women • No gym required • Cancel anytime</div>
+    </div>
+
+    <!-- FROM HOSPITAL GOWN TO WEIGHTED VEST -->
+    <section id="story" class="card">
+      <div class="kicker" data-i18n="story_kicker">FROM HOSPITAL GOWN TO WEIGHTED VEST</div>
+      <h2 class="section-title" data-i18n="story_title">Before & after — the moment everything changed</h2>
+
+      <div class="two-col">
+        <!-- BEFORE -->
+        <div class="photo-card">
+          <div class="photo-label" data-i18n="before_label">BEFORE — LYING IN A HOSPITAL BED</div>
+          <div class="photo-box">
+            <img src="hospital.jpg" alt="Mark in a hospital gown during recovery" />
+          </div>
+          <div class="photo-caption-title" data-i18n="before_caption_title">Mark in a hospital gown during recovery</div>
+          <div class="photo-caption-body" data-i18n="before_caption_body">
+            This was one of the moments where I realized: if I don’t change something, I’ll never get my freedom back.
+            Walking became my first medicine. One block. Then two.
+          </div>
+        </div>
+
+        <!-- AFTER -->
+        <div class="photo-card">
+          <div class="photo-label" data-i18n="after_label">NOW — WALKING NDG STREETS IN A WEIGHTED VEST</div>
+          <div class="photo-box">
+            <img src="vest.jpg" alt="Mark walking outside wearing a weighted vest" />
+          </div>
+          <div class="photo-caption-title" data-i18n="after_caption_title">Mark walking outside wearing a weighted vest</div>
+          <div class="photo-caption-body" data-i18n="after_caption_body">
+            Today I train six days a week — mostly from walking, bodyweight, and simple equipment. ReForm50 is the exact
+            framework I use, adjusted for your pain, your limits, and your life.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- YOUR FREE 7-DAY FREEDOM CHALLENGE -->
+    <section class="card card-soft">
+      <div class="kicker" data-i18n="free_kicker">YOUR FREE 7-DAY FREEDOM CHALLENGE™ ($97 VALUE)</div>
+      <h2 class="section-title" data-i18n="free_title">See what’s possible in just one week.</h2>
+      <p class="sub" data-i18n="free_sub">
+        Before we talk about the full 12-week program, I want you to feel what’s possible in just one week.
+        That’s what the 7-Day Freedom Challenge is for.
+      </p>
+      <ul>
+        <li data-i18n="free_li_1">Short, safe daily walks — built for NDG streets and real weather.</li>
+        <li data-i18n="free_li_2">Daily <span class="gold">Freedom Points</span> so you can see your effort, not just the scale.</li>
+        <li data-i18n="free_li_3"><span class="gold">Week 1 of the ReForm50 workbook</span> — printed or digital, your choice.</li>
+        <li data-i18n="free_li_4">Gentle guidance emails to keep you accountable and encouraged.</li>
+      </ul>
+      <div class="pill-row">
+        <div class="pill" data-i18n="pill_1">Free for NDG women</div>
+        <div class="pill" data-i18n="pill_2">No gym required</div>
+        <div class="pill" data-i18n="pill_3">Beginner-friendly</div>
+      </div>
+    </section>
+
+    <!-- START THE CHALLENGE (PLAIN HTML FORM TO BREVO) -->
+    <section id="challenge" class="card">
+      <div class="kicker" data-i18n="form_kicker">START THE 7-DAY FREEDOM CHALLENGE & SAVE YOUR FOUNDER SPOT</div>
+      <h2 class="section-title" data-i18n="form_title">Enter your details and I’ll send everything by email.</h2>
+      <p class="sub" data-i18n="form_sub">When you sign up today, you’ll get:</p>
+      <ul>
+        <li data-i18n="form_li_1">The full 7-Day Freedom Challenge (PDF).</li>
+        <li data-i18n="form_li_2">Your Freedom Points tracking page.</li>
+        <li data-i18n="form_li_3"><span class="gold">Week 1 of the ReForm50 workbook</span> so you can see how the full 12 weeks work.</li>
+      </ul>
+
+      <div class="form-wrapper">
+        <form method="POST"
+              action="https://f74184d5.sibforms.com/serve/MUIFAH8H2GIHP05NUVB2MeCAoFPW-mhdS8N3dWYmRefeTZ2J0rAPTgWsFuNM8ee9MKxEOeOCD94bFvvGA6eJpoWErhfxGvnl2l0YZWYbuahtJJCISmd1SFzA2XpxJpbtYw7LxPl7KSj_2iFJm2Bj3VeyRhzGEMogd15Q0Q32CGj1Nw2X-eGN7VgiPXaLcBLnIwayBLrQC3QZB-o4"
+              id="reform50-form"
+              target="reform50-hidden-iframe">
+
+          <!-- Honeypot field Brevo expects -->
+          <input type="text" name="email_address_check" value="" style="display:none;" />
+          <input type="hidden" name="locale" value="en" id="localeField" />
+          <input type="hidden" name="LANG" id="LANG" value="en" />
+
+          <div class="form-row">
+            <label class="form-label" for="FIRSTNAME" data-i18n="label_firstname">Enter your first name</label>
+            <input class="form-input" type="text" id="FIRSTNAME" name="FIRSTNAME" maxlength="200" required
+                   data-ph-en="" data-ph-fr="" />
+          </div>
+
+          <div class="form-row">
+            <label class="form-label" for="CITY" data-i18n="label_city">What part of NDG do you live in?</label>
+            <input class="form-input" type="text" id="CITY" name="CITY" maxlength="200" required
+                   placeholder="NDG area (e.g., Benny, Monkland, Sherbrooke)"
+                   data-ph-en="NDG area (e.g., Benny, Monkland, Sherbrooke)"
+                   data-ph-fr="Secteur NDG (ex. Benny, Monkland, Sherbrooke)" />
+          </div>
+
+          <div class="form-row">
+            <label class="form-label" for="MAIN_CHALLENGE" data-i18n="label_challenge">Your main challenge right now</label>
+            <input class="form-input" type="text" id="MAIN_CHALLENGE" name="MAIN_CHALLENGE" maxlength="200" required
+                   placeholder="Pain, fatigue, confidence, stairs, etc."
+                   data-ph-en="Pain, fatigue, confidence, stairs, etc."
+                   data-ph-fr="Douleur, fatigue, confiance, escaliers, etc." />
+          </div>
+
+          <div class="form-row">
+            <label class="form-label" for="EMAIL" data-i18n="label_email">Enter your email address to subscribe</label>
+            <input class="form-input" type="email" id="EMAIL" name="EMAIL" required
+                   placeholder="Email"
+                   data-ph-en="Email"
+                   data-ph-fr="Courriel" />
+          </div>
+
+          <div class="form-row">
+            <button type="submit" class="btn btn-primary" data-i18n="btn_submit">Join the 7-Day Challenge</button>
+          </div>
+        </form>
+
+        <!-- Hidden iframe used for the Brevo form POST so we can redirect after submission -->
+        <iframe id="reform50-hidden-iframe" name="reform50-hidden-iframe" style="display:none;"></iframe>
+      </div>
+    </section>
+
+    <section class="card card-soft">
+      <div class="kicker" data-i18n="points_kicker">HOW THE FREEDOM POINTS SYSTEM WORKS</div>
+      <h2 class="section-title" data-i18n="points_title">Score effort — not perfection.</h2>
+      <p class="sub" data-i18n="points_sub">
+        Each day you’ll earn Freedom Points for simple actions: walking, water, gentle stretches, and check-ins.
+      </p>
+      <ul>
+        <li data-i18n="points_li_1">Every small action counts — even 5–10 minutes.</li>
+        <li data-i18n="points_li_2">Points show your progress, even when the scale is slow.</li>
+        <li data-i18n="points_li_3">Hit your weekly target and you’re “On Track” — no perfection required.</li>
+      </ul>
+    </section>
+
+    <p class="mini-line">
+      <span data-i18n="email_line_prefix">Questions? Reply to any email from </span>
+      <a href="mailto:mark.gittens@reform50.com" class="gold">mark.gittens@reform50.com</a>
+      <span data-i18n="email_line_suffix"> and I’ll answer personally.</span>
+    </p>
+  </div>
+
+  <script>
+  (function(){
+    const form = document.getElementById('reform50-form');
+    const iframe = document.getElementById('reform50-hidden-iframe');
+    if(!form || !iframe) return;
+
+    let submitted = false;
+
+    form.addEventListener('submit', function(){
+      submitted = true;
+    });
+
+    iframe.addEventListener('load', function(){
+      if(submitted){
+        let lang = 'en';
+      try { lang = (localStorage.getItem('rf_lang') === 'fr') ? 'fr' : 'en'; } catch(e) {}
+      window.location.href = 'thank-you.html?lang=' + encodeURIComponent(lang);
+      }
+    });
+  })();
+  </script>
+
+  <!-- ReForm50 footer (no icons) -->
+  <div style="max-width:980px;margin:18px auto 0 auto;padding:14px 16px;border-top:1px solid rgba(255,255,255,.08);color:#c8d3df;font-size:12px;line-height:1.45;">
+    <div style="font-weight:800;color:#e9f0f7;" data-i18n="footer_name">Coach Mark</div>
+    <div data-i18n="footer_line1">ReForm50 — NDG Walking & Strength</div>
+    <div data-i18n="footer_line2">NDG, Montréal</div>
+    <div style="margin-top:10px;" data-i18n="footer_medical">
+      Medical note: ReForm50 does not replace medical advice. Always consult your doctor before beginning any new walking or exercise program, especially if you live with chronic conditions or past injuries.
+    </div>
+  </div>
+
+  <script>
+    const I18N = {
+      en: {
+        badge: "NDG • WALKING-FIRST RECOVERY",
+        hero_h1: "From hospital bed to walking NDG in a weighted vest.",
+        hero_sub: "A simple 7-Day Freedom Challenge, built for NDG women who want a safe, structured path back to strength — starting with walks, gentle moves, and Freedom Points.",
+        hero_btn_primary: "Start the 7-Day Freedom Challenge",
+        hero_btn_ghost: "See my Before / After story",
+        hero_mini: "Free for NDG women • No gym required • Cancel anytime",
+
+        story_kicker: "FROM HOSPITAL GOWN TO WEIGHTED VEST",
+        story_title: "Before & after — the moment everything changed",
+        before_label: "BEFORE — LYING IN A HOSPITAL BED",
+        before_caption_title: "Mark in a hospital gown during recovery",
+        before_caption_body: "This was one of the moments where I realized: if I don’t change something, I’ll never get my freedom back. Walking became my first medicine. One block. Then two.",
+        after_label: "NOW — WALKING NDG STREETS IN A WEIGHTED VEST",
+        after_caption_title: "Mark walking outside wearing a weighted vest",
+        after_caption_body: "Today I train six days a week — mostly from walking, bodyweight, and simple equipment. ReForm50 is the exact framework I use, adjusted for your pain, your limits, and your life.",
+
+        free_kicker: "YOUR FREE 7-DAY FREEDOM CHALLENGE™ ($97 VALUE)",
+        free_title: "See what’s possible in just one week.",
+        free_sub: "Before we talk about the full 12-week program, I want you to feel what’s possible in just one week. That’s what the 7-Day Freedom Challenge is for.",
+        free_li_1: "Short, safe daily walks — built for NDG streets and real weather.",
+        free_li_2: "Daily Freedom Points so you can see your effort, not just the scale.",
+        free_li_3: "Week 1 of the ReForm50 workbook — printed or digital, your choice.",
+        free_li_4: "Gentle guidance emails to keep you accountable and encouraged.",
+        pill_1: "Free for NDG women",
+        pill_2: "No gym required",
+        pill_3: "Beginner-friendly",
+
+        form_kicker: "START THE 7-DAY FREEDOM CHALLENGE & SAVE YOUR FOUNDER SPOT",
+        form_title: "Enter your details and I’ll send everything by email.",
+        form_sub: "When you sign up today, you’ll get:",
+        form_li_1: "The full 7-Day Freedom Challenge (PDF).",
+        form_li_2: "Your Freedom Points tracking page.",
+        form_li_3: "Week 1 of the ReForm50 workbook so you can see how the full 12 weeks work.",
+        label_firstname: "Enter your first name",
+        label_city: "What part of NDG do you live in?",
+        label_challenge: "Your main challenge right now",
+        label_email: "Enter your email address to subscribe",
+        btn_submit: "Join the 7-Day Challenge",
+
+        points_kicker: "HOW THE FREEDOM POINTS SYSTEM WORKS",
+        points_title: "Score effort — not perfection.",
+        points_sub: "Each day you’ll earn Freedom Points for simple actions: walking, water, gentle stretches, and check-ins.",
+        points_li_1: "Every small action counts — even 5–10 minutes.",
+        points_li_2: "Points show your progress, even when the scale is slow.",
+        points_li_3: "Hit your weekly target and you’re “On Track” — no perfection required.",
+
+        email_line_prefix: "Questions? Reply to any email from ",
+        email_line_suffix: " and I’ll answer personally.",
+
+        footer_name: "Coach Mark",
+        footer_line1: "ReForm50 — NDG Walking & Strength",
+        footer_line2: "NDG, Montréal",
+        footer_medical: "Medical note: ReForm50 does not replace medical advice. Always consult your doctor before beginning any new walking or exercise program, especially if you live with chronic conditions or past injuries."
+      },
+      fr: {
+        badge: "NDG • RÉCUPÉRATION PAR LA MARCHE",
+        hero_h1: "Du lit d’hôpital à marcher NDG avec un gilet lesté.",
+        hero_sub: "Un défi Liberté de 7 jours, conçu pour les femmes de NDG qui veulent retrouver leur force de façon sécuritaire et structurée — en commençant par la marche, des mouvements doux et les Points Liberté.",
+        hero_btn_primary: "Commencer le défi Liberté de 7 jours",
+        hero_btn_ghost: "Voir mon avant / après",
+        hero_mini: "Gratuit pour les femmes de NDG • Aucun gym requis • Annulez en tout temps",
+
+        story_kicker: "DU BLOUSE D’HÔPITAL AU GILET LESTÉ",
+        story_title: "Avant et après — le moment où tout a changé",
+        before_label: "AVANT — COUCHÉ DANS UN LIT D’HÔPITAL",
+        before_caption_title: "Mark en jaquette d’hôpital pendant sa récupération",
+        before_caption_body: "C’est à ce moment que j’ai compris: si je ne change rien, je ne retrouverai jamais ma liberté. La marche est devenue mon premier médicament. Un bloc. Puis deux.",
+        after_label: "MAINTENANT — MARCHE DANS NDG AVEC UN GILET LESTÉ",
+        after_caption_title: "Mark marche à l’extérieur avec un gilet lesté",
+        after_caption_body: "Aujourd’hui, je m’entraîne six jours par semaine — surtout grâce à la marche, au poids du corps et à un équipement simple. ReForm50 est exactement le cadre que j’utilise, adapté à votre douleur, vos limites et votre vie.",
+
+        free_kicker: "VOTRE DÉFI LIBERTÉ GRATUIT DE 7 JOURS™ (VALEUR 97 $)",
+        free_title: "Voyez ce qui est possible en seulement une semaine.",
+        free_sub: "Avant de parler du programme complet de 12 semaines, je veux que vous ressentiez ce qui est possible en une seule semaine. C’est exactement à ça que sert le défi Liberté de 7 jours.",
+        free_li_1: "Marches quotidiennes courtes et sécuritaires — adaptées aux rues de NDG et à la météo.",
+        free_li_2: "Points Liberté chaque jour pour voir vos efforts, pas seulement la balance.",
+        free_li_3: "Semaine 1 du cahier ReForm50 — imprimé ou numérique, à votre choix.",
+        free_li_4: "Courriels d’encouragement pour rester responsable et motivée.",
+        pill_1: "Gratuit pour les femmes de NDG",
+        pill_2: "Aucun gym requis",
+        pill_3: "Débutante bienvenue",
+
+        form_kicker: "COMMENCEZ LE DÉFI LIBERTÉ DE 7 JOURS ET RÉSERVEZ VOTRE PLACE FONDATRICE",
+        form_title: "Entrez vos informations et je vous enverrai tout par courriel.",
+        form_sub: "En vous inscrivant aujourd’hui, vous recevrez:",
+        form_li_1: "Le défi Liberté complet de 7 jours (PDF).",
+        form_li_2: "Votre page de suivi des Points Liberté.",
+        form_li_3: "Semaine 1 du cahier ReForm50 pour voir comment les 12 semaines fonctionnent.",
+        label_firstname: "Entrez votre prénom",
+        label_city: "Dans quel secteur de NDG habitez-vous?",
+        label_challenge: "Votre principal défi en ce moment",
+        label_email: "Entrez votre courriel pour vous inscrire",
+        btn_submit: "Rejoindre le défi de 7 jours",
+
+        points_kicker: "COMMENT FONCTIONNE LE SYSTÈME DE POINTS LIBERTÉ",
+        points_title: "Comptez l’effort — pas la perfection.",
+        points_sub: "Chaque jour, vous gagnerez des Points Liberté pour des actions simples: marcher, boire de l’eau, faire des étirements doux et des suivis.",
+        points_li_1: "Chaque petite action compte — même 5 à 10 minutes.",
+        points_li_2: "Les points montrent vos progrès, même si la balance bouge lentement.",
+        points_li_3: "Atteignez votre objectif hebdo et vous êtes « Sur la bonne voie » — sans perfection.",
+
+        email_line_prefix: "Des questions? Répondez à n’importe quel courriel de ",
+        email_line_suffix: " et je répondrai personnellement.",
+
+        footer_name: "Coach Mark",
+        footer_line1: "ReForm50 — Marche et renforcement à NDG",
+        footer_line2: "NDG, Montréal",
+        footer_medical: "Note médicale: ReForm50 ne remplace pas un avis médical. Consultez toujours votre médecin avant de commencer un nouveau programme de marche ou d’exercice, surtout si vous vivez avec des conditions chroniques ou des blessures passées."
+      }
+    };
+
+    let currentLang = "en";
+    const toggleBtn = document.getElementById("langToggle");
+    const localeField = document.getElementById("localeField");
+    const langField = document.getElementById("LANG");
+
+    function applyLang(lang){
+      const dict = I18N[lang] || I18N.en;
+      if(langField) langField.value = (lang === "fr" ? "fr" : "en");
+      try { localStorage.setItem('rf_lang', (lang === 'fr' ? 'fr' : 'en')); } catch(e) {}
+
+      document.documentElement.lang = lang === "fr" ? "fr" : "en";
+      if(localeField) localeField.value = lang === "fr" ? "fr" : "en";
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if(dict[key] !== undefined){
+          el.innerHTML = dict[key];
+        }
+      });
+
+      document.querySelectorAll("[data-ph-en]").forEach(el => {
+        const ph = el.getAttribute(lang === "fr" ? "data-ph-fr" : "data-ph-en");
+        if(ph) el.setAttribute("placeholder", ph);
+      });
+
+      toggleBtn.textContent = (lang === "en") ? "FR" : "EN";
+      currentLang = lang;
+      window.currentLang = lang;
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      applyLang(currentLang === "en" ? "fr" : "en");
+    });
+
+    let saved = "en";
+    try { saved = (localStorage.getItem("rf_lang") === "fr") ? "fr" : "en"; } catch(e) {}
+    applyLang(saved);
+  </script>
+</body>
+</html>
