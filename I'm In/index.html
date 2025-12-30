@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ReForm50 — January 1-on-1 — I’m In</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #021920;
+      --card: #06242e;
+      --card-soft: #08313d;
+      --accent: #ffc94a;
+      --accent-soft: rgba(255, 201, 74, 0.12);
+      --text-main: #f4f7fb;
+      --text-soft: #c8d3df;
+      --border-soft: #164452;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .logo { height: 40px; width: auto; }
+
+    .badge {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: rgba(0,0,0,0.4);
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .lang-toggle {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: rgba(0,0,0,0.4);
+      color: var(--accent);
+      cursor: pointer;
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 9999;
+      white-space: nowrap;
+    }
+
+    h1 { font-size: 26px; margin: 8px 0 4px; }
+    .sub { font-size: 14px; color: var(--text-soft); }
+
+    .hero-copy { margin-bottom: 24px; }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.1s ease;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #1a1608;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.45);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--accent);
+      border-color: var(--accent-soft);
+    }
+    .btn-ghost:hover { background: var(--accent-soft); }
+
+    .mini-line {
+      font-size: 11px;
+      color: var(--text-soft);
+      margin-top: 6px;
+    }
+
+    .section-title { font-size: 18px; margin: 0 0 6px; }
+
+    .card {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 18px 16px;
+      margin-bottom: 18px;
+      border: 1px solid var(--border-soft);
+    }
+
+    .card-soft { background: var(--card-soft); }
+
+    .kicker {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .photo-card {
+      background: rgba(0,0,0,0.25);
+      border-radius: 8px;
+      padding: 10px;
+      border: 1px solid var(--border-soft);
+    }
+
+    .photo-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .photo-box {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #000;
+      margin-bottom: 8px;
+    }
+
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-caption-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .photo-caption-body {
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    ul {
+      margin: 8px 0 0 18px;
+      padding: 0;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    ul li { margin-bottom: 4px; }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      color: var(--accent);
+      background: rgba(0,0,0,0.3);
+    }
+
+    .gold { color: var(--accent); }
+    a.gold { text-decoration: none; }
+
+    .form-wrapper { margin-top: 12px; }
+    .form-row { margin-bottom: 10px; }
+
+    .form-label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 9px 10px;
+      border-radius: 4px;
+      border: 1px solid #c0ccd9;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      h1 { font-size: 22px; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+  
+.lang-toggle{position:fixed;top:14px;right:14px;z-index:99999;display:flex;gap:10px}
+.lang-link{display:inline-block;padding:8px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.15);
+text-decoration:none;font-weight:700;font-size:12px;line-height:1;color:inherit;background:rgba(255,255,255,.85)}
+.lang-link:active{transform:scale(.98)}
+
+</style>
+</head>
+
+<body>
+  <div class="page">
+    <!-- TOP / HERO -->
+    <header class="top-bar">
+      <img src="reform50-logo.png" alt="ReForm50" class="logo" />
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+        <div class="badge" data-i18n="badge">NDG • WALKING-FIRST RECOVERY</div>
+        <a class="lang-link" href="?lang=en">EN</a><a class="lang-link" href="?lang=fr">FR</a>
+      </div>
+    </header>
+
+    
+    <div class="hero-copy">
+      <h1 data-i18n="hero_h1">ReForm50 — January 1-on-1 Walking-First Program</h1>
+      <p class="sub" data-i18n="hero_sub">
+        A calm, one-on-one program for NDG women 50+ who want progress without pushing through pain.
+      </p>
+      <div class="hero-buttons">
+        <a href="#next" class="btn btn-primary" data-i18n="hero_btn_primary">Request a January One-on-One Spot</a>
+        <a href="mailto:mark.gittens@reform50.com?subject=Question%20about%20ReForm50" class="btn btn-ghost" data-i18n="hero_btn_ghost">Email me a question</a>
+      </div>
+      <div class="mini-line" data-i18n="hero_mini">Only 10 spots • NDG • Walking first • Start date January 19</div>
+    </div>
+
+    <!-- MICRO: I'M IN PAGE CONTENT -->
+    <section class="card" id="im-in">
+      <div class="kicker" data-i18n="micro_kicker">JANUARY 1 ON 1 PROGRAM</div>
+      <h2 class="section-title" data-i18n="micro_title">Request your January spot</h2>
+      <p class="sub" data-i18n="micro_sub">
+        This page is for NDG women 50+ who already feel the program fits and want the next calm step.
+      </p>
+
+      <div class="bullets">
+        <div class="bullet" data-i18n="micro_b1">One on one coaching only</div>
+        <div class="bullet" data-i18n="micro_b2">Walking first, pain safe progression</div>
+        <div class="bullet" data-i18n="micro_b3">Limited to 10 clients per cycle</div>
+        <div class="bullet" data-i18n="micro_b4">Start date: January 19</div>
+      </div>
+    </section>
+
+    <section class="card" id="fit">
+      <div class="kicker" data-i18n="fit_kicker">IS THIS FOR YOU</div>
+      <h2 class="section-title" data-i18n="fit_title">Who this is for, and who it is not for</h2>
+
+      <div class="two-col" style="margin-top:14px;">
+        <div class="photo-card" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);">
+          <div class="photo-label" data-i18n="fit_for_label">THIS IS FOR YOU IF</div>
+          <ul class="list">
+            <li data-i18n="fit_for_1">You want a safe walking first foundation</li>
+            <li data-i18n="fit_for_2">You want calm structure and clear steps</li>
+            <li data-i18n="fit_for_3">You want progress without pushing through pain</li>
+          </ul>
+        </div>
+
+        <div class="photo-card" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);">
+          <div class="photo-label" data-i18n="fit_not_label">THIS IS NOT FOR YOU IF</div>
+          <ul class="list">
+            <li data-i18n="fit_not_1">You want group workouts or bootcamps</li>
+            <li data-i18n="fit_not_2">You want high intensity training</li>
+            <li data-i18n="fit_not_3">You want a program that ignores pain signals</li>
+          </ul>
+        </div>
+      </div>
+    <div class="mini-line" style="margin-top:10px;">This program is for people ready to show up consistently, even on slow or uncomfortable days.</div>
+    </section>
+
+    <section class="card" id="how">
+      <div class="kicker" data-i18n="how_kicker">HOW IT WORKS</div>
+      <h2 class="section-title" data-i18n="how_title">Simple weekly structure</h2>
+
+      <ul class="list" style="margin-top:10px;">
+        <li data-i18n="how_1">Two in person sessions per week</li>
+        <li data-i18n="how_2">Two accountability check ins per week</li>
+        <li data-i18n="how_3">Freedom Points tracking for daily consistency</li>
+        <li data-i18n="how_4">Pain safe progression only</li>
+      </ul>
+
+      <div class="mini-line" style="margin-top:10px;" data-i18n="how_note">
+        Sessions are 45 minutes. Travel buffers are built in so everything stays calm.
+        <br><span style="opacity:.7;font-size:14px;">Built from years of chronic pain recovery and real NDG coaching experience.</span>
+      </div>
+    </section>
+
+    <div class="mini-line" style="margin-bottom:14px;">Because this is one-on-one and capacity is limited, clear boundaries protect everyone involved.</div>
+
+    <section class="card" id="policies">
+      <div class="kicker" data-i18n="pol_kicker">COMMITMENT AND POLICIES</div>
+      <h2 class="section-title" data-i18n="pol_title">Clear, professional boundaries</h2>
+
+      <ul class="list" style="margin-top:10px;">
+        <li data-i18n="pol_1">Only 10 clients per cycle</li>
+        <li data-i18n="pol_2">$400 deposit to reserve your spot. Deposit is non refundable.</li>
+        <li data-i18n="pol_3">Full payment is due one week before January 19</li>
+        <li data-i18n="pol_4">Minimum two week commitment once you start</li>
+        <li data-i18n="pol_5">If you stop early, you complete a two week transition period</li>
+        <li data-i18n="pol_6">No refunds for any reason</li>
+      </ul>
+    </section>
+
+    <section class="card" id="next">
+      <div class="kicker" data-i18n="next_kicker">NEXT STEP</div>
+      <h2 class="section-title" data-i18n="next_title">What happens after you request a spot</h2>
+      <div class="mini-line" style="margin-top:6px;">Both sides confirm fit before moving forward.</div>
+
+      <ol class="list" style="margin-top:10px;">
+        <li data-i18n="next_1">You email to request your January spot</li>
+        <li data-i18n="next_2">We schedule a 10 minute call to confirm fit</li>
+        <li data-i18n="next_3">If it is a fit, you reserve your place with the $400 deposit</li>
+        <li data-i18n="next_4">You receive the welcome package with the full structure and next steps</li>
+      </ol>
+
+      <div class="hero-buttons" style="margin-top:16px;">
+        <a class="btn btn-primary" href="mailto:mark.gittens@reform50.com?subject=JANUARY%20SPOT%20%E2%80%94%20READY" data-i18n="cta_btn">Request a January One-on-One Spot</a>
+        <a class="btn btn-ghost" href="mailto:mark.gittens@reform50.com?subject=ALIGNMENT%20CALL%20%E2%80%94%20JANUARY" data-i18n="cta_ghost">Book a 10 minute alignment call</a>
+      </div>
+      <div class="mini-line" style="margin-top:10px;" data-i18n="cta_note">No pressure. If it fits, we move forward calmly.</div>
+    </section>
+  <div style="max-width:980px;margin:18px auto 0 auto;padding:14px 16px;border-top:1px solid rgba(255,255,255,.08);color:#c8d3df;font-size:12px;line-height:1.45;">
+    <div style="font-weight:800;color:#e9f0f7;" data-i18n="footer_name">Coach Mark</div>
+    <div data-i18n="footer_line1">ReForm50 — NDG Walking & Strength</div>
+    <div data-i18n="footer_line2">NDG, Montréal</div>
+    <div style="margin-top:10px;" data-i18n="footer_medical">
+      Medical note: ReForm50 does not replace medical advice. Always consult your doctor before beginning any new walking or exercise program, especially if you live with chronic conditions or past injuries.
+    </div>
+  </div>
+
+  
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const I18N = {
+    en: {
+      badge: "NDG • WALKING FIRST RECOVERY",
+      hero_h1: "ReForm50 — January 1-on-1 Walking-First Program",
+      hero_sub: "A calm, one-on-one program for NDG women 50+ who want progress without pushing through pain.",
+      hero_btn_primary: "Request a January One-on-One Spot",
+      hero_btn_ghost: "Email me a question",
+      hero_mini: "Only 10 spots • NDG • Walking first • Start date January 19",
+
+      micro_kicker: "JANUARY 1 ON 1 PROGRAM",
+      micro_title: "Request your January spot",
+      micro_sub: "This page is for NDG women 50+ who already feel the program fits and want the next calm step.",
+      micro_b1: "One on one coaching only",
+      micro_b2: "Walking first, pain safe progression",
+      micro_b3: "Limited to 10 clients per cycle",
+      micro_b4: "Start date: January 19",
+
+      fit_kicker: "IS THIS FOR YOU",
+      fit_title: "Who this is for, and who it is not for",
+      fit_for_label: "THIS IS FOR YOU IF",
+      fit_for_1: "You want a safe walking first foundation",
+      fit_for_2: "You want calm structure and clear steps",
+      fit_for_3: "You want progress without pushing through pain",
+      fit_not_label: "THIS IS NOT FOR YOU IF",
+      fit_not_1: "You want group workouts or bootcamps",
+      fit_not_2: "You want high intensity training",
+      fit_not_3: "You want a program that ignores pain signals",
+
+      how_kicker: "HOW IT WORKS",
+      how_title: "Simple weekly structure",
+      how_1: "Two in person sessions per week",
+      how_2: "Two accountability check ins per week",
+      how_3: "Freedom Points tracking for daily consistency",
+      how_4: "Pain safe progression only",
+      how_note: "Sessions are 45 minutes. Travel buffers are built in so everything stays calm.",
+
+      pol_kicker: "COMMITMENT AND POLICIES",
+      pol_title: "Clear, professional boundaries",
+      pol_1: "Only 10 clients per cycle",
+      pol_2: "$400 deposit to reserve your spot. Deposit is non refundable.",
+      pol_3: "Full payment is due one week before January 19",
+      pol_4: "Minimum two week commitment once you start",
+      pol_5: "If you stop early, you complete a two week transition period",
+      pol_6: "No refunds for any reason",
+
+      next_kicker: "NEXT STEP",
+      next_title: "What happens after you request a spot",
+      next_1: "You email to request your January spot",
+      next_2: "We schedule a 10 minute call to confirm fit",
+      next_3: "If it is a fit, you reserve your place with the $400 deposit",
+      next_4: "You receive the welcome package with the full structure and next steps",
+      cta_btn: "Request a January One-on-One Spot",
+      cta_ghost: "Book a 10 minute alignment call",
+      cta_note: "No pressure. If it fits, we move forward calmly.",
+
+      footer_name: "Coach Mark",
+      footer_line1: "ReForm50 — NDG Walking & Strength",
+      footer_line2: "NDG, Montréal",
+      footer_medical: "Medical note: ReForm50 does not replace medical advice. Always consult your doctor before beginning any new exercise or walking program, especially if you live with chronic conditions or past injuries."
+    },
+
+    fr: {
+      badge: "NDG • RÉCUPÉRATION PAR LA MARCHE",
+      hero_h1: "ReForm50 — Programme Janvier 1 sur 1 Marche en premier",
+      hero_sub: "Un programme calme et individuel pour les femmes 50+ de NDG qui veulent progresser sans forcer à travers la douleur.",
+      hero_btn_primary: "Demander ma place de janvier",
+      hero_btn_ghost: "M’écrire une question",
+      hero_mini: "Seulement 10 places • NDG • Marche en premier • Début le 19 janvier",
+
+      micro_kicker: "PROGRAMME 1 SUR 1 JANVIER",
+      micro_title: "Demander votre place de janvier",
+      micro_sub: "Cette page est pour les femmes 50+ de NDG qui sentent déjà que le programme leur convient et veulent la prochaine étape, calmement.",
+      micro_b1: "Coaching individuel seulement",
+      micro_b2: "Marche en premier, progression sécuritaire",
+      micro_b3: "Limité à 10 clientes par cycle",
+      micro_b4: "Début: 19 janvier",
+
+      fit_kicker: "EST CE POUR VOUS",
+      fit_title: "Pour qui c’est fait, et pour qui ce n’est pas fait",
+      fit_for_label: "C’EST POUR VOUS SI",
+      fit_for_1: "Vous voulez une base sécuritaire axée sur la marche",
+      fit_for_2: "Vous voulez une structure calme et des étapes claires",
+      fit_for_3: "Vous voulez progresser sans pousser à travers la douleur",
+      fit_not_label: "CE N’EST PAS POUR VOUS SI",
+      fit_not_1: "Vous voulez des entraînements de groupe ou un bootcamp",
+      fit_not_2: "Vous voulez de la haute intensité",
+      fit_not_3: "Vous voulez un programme qui ignore les signaux de douleur",
+
+      how_kicker: "COMMENT ÇA MARCHE",
+      how_title: "Structure simple chaque semaine",
+      how_1: "Deux séances en personne par semaine",
+      how_2: "Deux suivis par semaine",
+      how_3: "Suivi des points Freedom pour la constance",
+      how_4: "Progression sécuritaire seulement",
+      how_note: "Les séances durent 45 minutes. Des marges de déplacement sont prévues pour que tout reste calme.",
+
+      pol_kicker: "ENGAGEMENT ET POLITIQUES",
+      pol_title: "Des limites claires et professionnelles",
+      pol_1: "Seulement 10 clientes par cycle",
+      pol_2: "Dépôt de 400 $ pour réserver votre place. Le dépôt n’est pas remboursable.",
+      pol_3: "Paiement complet dû une semaine avant le 19 janvier",
+      pol_4: "Engagement minimum de deux semaines une fois commencé",
+      pol_5: "Si vous arrêtez tôt, vous complétez une période de transition de deux semaines",
+      pol_6: "Aucun remboursement, pour aucune raison",
+
+      next_kicker: "PROCHAINE ÉTAPE",
+      next_title: "Ce qui se passe après votre demande",
+      next_1: "Vous écrivez pour demander votre place de janvier",
+      next_2: "On planifie un appel de 10 minutes pour valider l’adéquation",
+      next_3: "Si c’est un bon fit, vous réservez avec le dépôt de 400 $",
+      next_4: "Vous recevez le kit de bienvenue avec la structure complète et les prochaines étapes",
+      cta_btn: "Demander ma place de janvier",
+      cta_ghost: "Réserver un appel de 10 minutes",
+      cta_note: "Sans pression. Si c’est un bon fit, on avance calmement.",
+
+      footer_name: "Coach Mark",
+      footer_line1: "ReForm50 — Marche & force à NDG",
+      footer_line2: "NDG, Montréal",
+      footer_medical: "Note médicale: ReForm50 ne remplace pas un avis médical. Consultez votre médecin avant de commencer un nouveau programme d’exercice ou de marche, surtout si vous avez des conditions chroniques ou des blessures passées."
+    }
+  };
+
+  
+  // Language is controlled by URL and saved preference.
+  // Use ?lang=en or ?lang=fr on the micro page URL.
+  const mailPrimary = document.querySelector('a[href^="mailto:"][data-i18n="cta_btn"]');
+  const mailCall = document.querySelector('a[href^="mailto:"][data-i18n="cta_ghost"]');
+  const mailQuestion = document.querySelector('a[href^="mailto:"][data-i18n="hero_btn_ghost"]');
+
+  function updateMailtoSubjects(lang) {
+    if (mailPrimary) {
+      const subj = (lang === "fr") ? "PLACE%20JANVIER%20%E2%80%94%20PR%C3%8ATE" : "JANUARY%20SPOT%20%E2%80%94%20READY";
+      mailPrimary.setAttribute("href", "mailto:mark.gittens@reform50.com?subject=" + subj);
+    }
+    if (mailCall) {
+      const subj = (lang === "fr") ? "APPEL%20ALIGNEMENT%20%E2%80%94%20JANVIER" : "ALIGNMENT%20CALL%20%E2%80%94%20JANUARY";
+      mailCall.setAttribute("href", "mailto:mark.gittens@reform50.com?subject=" + subj);
+    }
+    if (mailQuestion) {
+      const subj = (lang === "fr") ? "Question%20sur%20ReForm50" : "Question%20about%20ReForm50";
+      mailQuestion.setAttribute("href", "mailto:mark.gittens@reform50.com?subject=" + subj);
+    }
+  }
+
+  function applyLang(lang) {
+    const dict = I18N[lang] || I18N.en;
+
+    document.documentElement.lang = (lang === "fr") ? "fr" : "en";
+
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      const key = el.getAttribute("data-i18n");
+      if (!key) return;
+      if (dict[key] == null) return;
+      el.textContent = dict[key];
+    });
+
+    updateMailtoSubjects(lang);
+
+    try { localStorage.setItem("rf_lang", (lang === "fr") ? "fr" : "en"); } catch (e) {}
+    try { document.documentElement.setAttribute("data-lang", lang); } catch (e) {}
+
+    try {
+      document.querySelectorAll(".lang-link").forEach(function(a){
+        const h = (a.getAttribute("href") || "");
+        const isFR = h.indexOf("lang=fr") > -1;
+        const isEN = h.indexOf("lang=en") > -1;
+        a.style.opacity = ((lang === "fr" && isFR) || (lang === "en" && isEN)) ? "1" : ".6";
+      });
+    } catch (e) {}
+  }
+
+  function getForcedLangFromUrl() {
+    try {
+      const p = new URLSearchParams(window.location.search);
+      const l = (p.get("lang") || "").toLowerCase();
+      if (l === "fr" || l === "en") return l;
+    } catch (e) {}
+    return null;
+  }
+
+  let lang = "en";
+  try {
+    lang = (localStorage.getItem("rf_lang") === "fr") ? "fr" : "en";
+  } catch (e) {}
+
+  const forced = getForcedLangFromUrl();
+  if (forced) lang = forced;
+
+  window.requestAnimationFrame(function(){ applyLang(lang); });
+});
+</script>
+
+</body>
+</html>
