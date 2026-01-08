@@ -363,11 +363,25 @@ text-decoration:none;font-weight:700;font-size:12px;line-height:1;color:inherit;
       </ol>
 
       <div class="hero-buttons" style="margin-top:16px;">
-        <a class="btn btn-primary" href="https://reform50.com/ready" data-i18n="cta_btn">Request a February One-on-One Spot</a>
-        <a class="btn btn-ghost" href="https://reform50.com/info" data-i18n="cta_ghost">Book a 10 minute alignment call</a>
+        <a class="btn btn-primary" href="mailto:mark.gittens@reform50.com?subject=FEBRUARY%20SPOT%20%E2%80%94%20READY" data-i18n="cta_btn">Request a February One-on-One Spot</a>
+        <a class="btn btn-ghost" href="mailto:mark.gittens@reform50.com?subject=FEBRUARY%20SPOT%20%E2%80%94%20INFO" data-i18n="cta_ghost">I want more information</a>
       </div>
       <div class="mini-line" style="margin-top:10px;" data-i18n="cta_note">No pressure. If it fits, we move forward calmly.</div>
+    
+    <section class="card" id="info">
+      <div class="kicker" data-i18n="info_kicker">INFO</div>
+      <h2 class="section-title" data-i18n="info_title">More information (calm and simple)</h2>
+      <p class="sub" data-i18n="info_body">
+        If you’re interested but still cautious, email me one question. I’ll answer calmly and tell you exactly what the next step would look like.
+      </p>
+      <div class="hero-buttons" style="margin-top:16px;">
+        <a class="btn btn-primary" href="mailto:mark.gittens@reform50.com?subject=FEBRUARY%20SPOT%20%E2%80%94%20INFO" data-i18n="info_btn">Email me for more information</a>
+        <a class="btn btn-ghost" href="#next" data-i18n="info_back">Back to next step</a>
+      </div>
+      <div class="mini-line" style="margin-top:10px;" data-i18n="info_note">No pressure. If it fits, we move forward calmly.</div>
     </section>
+
+</section>
   <div style="max-width:980px;margin:18px auto 0 auto;padding:14px 16px;border-top:1px solid rgba(255,255,255,.08);color:#c8d3df;font-size:12px;line-height:1.45;">
     <div style="font-weight:800;color:#e9f0f7;" data-i18n="footer_name">Coach Mark</div>
     <div data-i18n="footer_line1">ReForm50 — NDG Walking & Strength</div>
@@ -432,14 +446,21 @@ document.addEventListener("DOMContentLoaded", function () {
       next_3: "If it is a fit, you reserve your place with the $400 deposit",
       next_4: "You receive the welcome package with the full structure and next steps",
       cta_btn: "Request a February One-on-One Spot",
-      cta_ghost: "Book a 10 minute alignment call",
+      cta_ghost: "I want more information",
       cta_note: "No pressure. If it fits, we move forward calmly.",
 
       footer_name: "Coach Mark",
       footer_line1: "ReForm50 — NDG Walking & Strength",
       footer_line2: "NDG, Montréal",
       footer_medical: "Medical note: ReForm50 does not replace medical advice. Always consult your doctor before beginning any new exercise or walking program, especially if you live with chronic conditions or past injuries."
-    },
+    
+      info_kicker: "INFO",
+      info_title: "More information (calm and simple)",
+      info_body: "If you’re interested but still cautious, email me one question. I’ll answer calmly and tell you exactly what the next step would look like.",
+      info_btn: "Email me for more information",
+      info_back: "Back to next step",
+      info_note: "No pressure. If it fits, we move forward calmly.",
+},
 
     fr: {
       badge: "NDG • RÉCUPÉRATION PAR LA MARCHE",
@@ -492,14 +513,21 @@ document.addEventListener("DOMContentLoaded", function () {
       next_3: "Si c’est un bon fit, vous réservez avec le dépôt de 400 $",
       next_4: "Vous recevez le kit de bienvenue avec la structure complète et les prochaines étapes",
       cta_btn: "Demander ma place de février",
-      cta_ghost: "Réserver un appel de 10 minutes",
+      cta_ghost: "Je veux plus d’information",
       cta_note: "Sans pression. Si c’est un bon fit, on avance calmement.",
 
       footer_name: "Coach Mark",
       footer_line1: "ReForm50 — Marche & force à NDG",
       footer_line2: "NDG, Montréal",
       footer_medical: "Note médicale: ReForm50 ne remplace pas un avis médical. Consultez votre médecin avant de commencer un nouveau programme d’exercice ou de marche, surtout si vous avez des conditions chroniques ou des blessures passées."
-    }
+    
+      info_kicker: "INFO",
+      info_title: "Plus d’information (calme et simple)",
+      info_body: "Si vous êtes intéressée mais encore prudente, écrivez-moi une question. Je répondrai calmement et je vous dirai exactement à quoi ressemble la prochaine étape.",
+      info_btn: "M’écrire pour plus d’information",
+      info_back: "Retour à la prochaine étape",
+      info_note: "Sans pression. Si c’est un bon fit, on avance calmement.",
+}
   };
 
   
@@ -536,7 +564,7 @@ document.addEventListener("DOMContentLoaded", function () {
       el.textContent = dict[key];
     });
 
-    // updateMailtoSubjects(lang);
+    updateMailtoSubjects(lang);
 
     try { localStorage.setItem("rf_lang", (lang === "fr") ? "fr" : "en"); } catch (e) {}
     try { document.documentElement.setAttribute("data-lang", lang); } catch (e) {}
