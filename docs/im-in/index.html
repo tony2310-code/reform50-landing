@@ -363,8 +363,8 @@ text-decoration:none;font-weight:700;font-size:12px;line-height:1;color:inherit;
       </ol>
 
       <div class="hero-buttons" style="margin-top:16px;">
-        <a class="btn btn-primary" href="__BREVO_LINK_READY__" data-i18n="cta_btn">Request a February One-on-One Spot</a>
-        <a class="btn btn-ghost" href="__BREVO_LINK_INFO__" data-i18n="cta_ghost">I want more information</a>
+        <a class="btn btn-primary" href="mailto:mark.gittens@reform50.com?subject=FEBRUARY%20SPOT%20%E2%80%94%20READY" data-i18n="cta_btn">Request a February One-on-One Spot</a>
+        <a class="btn btn-ghost" href="mailto:mark.gittens@reform50.com?subject=ALIGNMENT%20CALL%20%E2%80%94%20FEBRUARY" data-i18n="cta_ghost">Book a 10 minute alignment call</a>
       </div>
       <div class="mini-line" style="margin-top:10px;" data-i18n="cta_note">No pressure. If it fits, we move forward calmly.</div>
     </section>
@@ -432,7 +432,7 @@ document.addEventListener("DOMContentLoaded", function () {
       next_3: "If it is a fit, you reserve your place with the $400 deposit",
       next_4: "You receive the welcome package with the full structure and next steps",
       cta_btn: "Request a February One-on-One Spot",
-      cta_ghost: "I want more information",
+      cta_ghost: "Book a 10 minute alignment call",
       cta_note: "No pressure. If it fits, we move forward calmly.",
 
       footer_name: "Coach Mark",
@@ -449,7 +449,7 @@ document.addEventListener("DOMContentLoaded", function () {
       hero_btn_ghost: "M’écrire une question",
       hero_mini: "Seulement 10 places • NDG • Marche en premier • Début le 19 février",
 
-      micro_kicker: "PROGRAMME 1 SUR 1 JANVIER",
+      micro_kicker: "PROGRAMME 1 SUR 1 FÉVRIER",
       micro_title: "Demander votre place de février",
       micro_sub: "Cette page est pour les femmes 50+ de NDG qui sentent déjà que le programme leur convient et veulent la prochaine étape, calmement.",
       micro_b1: "Coaching individuel seulement",
@@ -492,7 +492,7 @@ document.addEventListener("DOMContentLoaded", function () {
       next_3: "Si c’est un bon fit, vous réservez avec le dépôt de 400 $",
       next_4: "Vous recevez le kit de bienvenue avec la structure complète et les prochaines étapes",
       cta_btn: "Demander ma place de février",
-      cta_ghost: "Je veux plus d’informations",
+      cta_ghost: "Réserver un appel de 10 minutes",
       cta_note: "Sans pression. Si c’est un bon fit, on avance calmement.",
 
       footer_name: "Coach Mark",
@@ -510,26 +510,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const mailQuestion = document.querySelector('a[href^="mailto:"][data-i18n="hero_btn_ghost"]');
 
   function updateMailtoSubjects(lang) {
-    // If CTA hrefs are already set to Brevo placeholders/links, do not override them.
-    try {
-      const keepPrimary = mailPrimary && (mailPrimary.getAttribute("href") || "").indexOf("__BREVO_") === 0;
-      const keepCall = mailCall && (mailCall.getAttribute("href") || "").indexOf("__BREVO_") === 0;
-      if (!keepPrimary && mailPrimary) {
-        const subj = (lang === "fr") ? "PLACE%20F%C3%89VRIER%20%E2%80%94%20PR%C3%8ATE" : "FEBRUARY%20SPOT%20%E2%80%94%20READY";
-        mailPrimary.setAttribute("href", "mailto:mark.gittens@reform50.com?subject=" + subj);
-      }
-      if (!keepCall && mailCall) {
-        const subj = (lang === "fr") ? "PLUS%20D%27INFOS%20%E2%80%94%20F%C3%89VRIER" : "MORE%20INFO%20%E2%80%94%20FEBRUARY";
-        mailCall.setAttribute("href", "mailto:mark.gittens@reform50.com?subject=" + subj);
-      }
-      if (mailQuestion) {
-        const subj = (lang === "fr") ? "Question%20sur%20ReForm50" : "Question%20about%20ReForm50";
-        mailQuestion.setAttribute("href", "mailto:mark.gittens@reform50.com?subject=" + subj);
-      }
-    } catch (e) {}
-  }
+    if (mailPrimary) {
+      const subj = (lang === "fr") ? "PLACE%20FÉVRIER%20%E2%80%94%20PR%C3%8ATE" : "FEBRUARY%20SPOT%20%E2%80%94%20READY";
+      mailPrimary.setAttribute("href", "mailto:mark.gittens@reform50.com?subject=" + subj);
+    }
     if (mailCall) {
-      const subj = (lang === "fr") ? "PLUS%20D%27INFOS%20%E2%80%94%20F%C3%89VRIER" : "MORE%20INFO%20%E2%80%94%20FEBRUARY";
+      const subj = (lang === "fr") ? "APPEL%20ALIGNEMENT%20%E2%80%94%20FÉVRIER" : "ALIGNMENT%20CALL%20%E2%80%94%20FEBRUARY";
       mailCall.setAttribute("href", "mailto:mark.gittens@reform50.com?subject=" + subj);
     }
     if (mailQuestion) {
