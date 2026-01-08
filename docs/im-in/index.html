@@ -536,7 +536,7 @@ document.addEventListener("DOMContentLoaded", function () {
       el.textContent = dict[key];
     });
 
-    updateMailtoSubjects(lang);
+    // updateMailtoSubjects(lang);
 
     try { localStorage.setItem("rf_lang", (lang === "fr") ? "fr" : "en"); } catch (e) {}
     try { document.documentElement.setAttribute("data-lang", lang); } catch (e) {}
