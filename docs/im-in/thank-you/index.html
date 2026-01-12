@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ReForm50 — You’re In</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f7f9f9;
+  color: #1e1e1e;
+  line-height: 1.6;
+}
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.logo img {
+  max-width: 140px;
+}
+.lang {
+  text-align: right;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.lang a {
+  color: #077278;
+  text-decoration: none;
+  font-weight: 500;
+}
+h1 {
+  color: #077278;
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+.section {
+  margin-top: 28px;
+}
+.box {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 16px;
+}
+.button {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 12px 18px;
+  background: #077278;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+}
+.small {
+  font-size: 14px;
+  color: #555;
+}
+.footer {
+  margin-top: 40px;
+  font-size: 13px;
+  color: #666;
+}
+.hidden {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <div class="logo">
+    <img src="../reform50-logo.png" alt="ReForm50">
+  </div>
+
+  <div class="lang">
+    <a href="#" onclick="toggleLang();return false;">Français</a>
+  </div>
+
+  <!-- ENGLISH -->
+  <div id="en">
+
+    <h1>You’re in.</h1>
+    <p>Thank you for joining ReForm50. You’ve taken the first calm, safe step.</p>
+
+    <div class="box">
+      <strong>What happens next:</strong>
+      <ul>
+        <li><strong>Today:</strong> You’ll receive your welcome email and Starter Plan (PDF).</li>
+        <li><strong>Tomorrow:</strong> Day 1 instructions and your Freedom Points tracker.</li>
+        <li><strong>This week:</strong> Gentle daily walks and safe movements.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <strong>Important:</strong>
+      <p>Please check your inbox (and spam folder) for an email from ReForm50.</p>
+    </div>
+
+    <div class="section box">
+      <strong>Optional but recommended:</strong>
+      <p>Join the private Telegram channel for calm reminders and support.</p>
+      <a class="button" href="#" target="_blank">Join Telegram</a>
+    </div>
+
+    <div class="section small">
+      This is an educational walking and movement program. It does not replace medical advice.
+    </div>
+
+  </div>
+
+  <!-- FRENCH -->
+  <div id="fr" class="hidden">
+
+    <h1>Vous êtes inscrit(e).</h1>
+    <p>Merci d’avoir rejoint ReForm50. Vous venez de faire un premier pas calme et sécuritaire.</p>
+
+    <div class="box">
+      <strong>Voici ce qui se passe ensuite :</strong>
+      <ul>
+        <li><strong>Aujourd’hui :</strong> Vous recevrez l’email de bienvenue et le plan de départ (PDF).</li>
+        <li><strong>Demain :</strong> Les instructions du Jour 1 et le suivi des Freedom Points.</li>
+        <li><strong>Cette semaine :</strong> Des marches douces et des mouvements sécuritaires.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <strong>Important :</strong>
+      <p>Veuillez vérifier votre boîte courriel (et les courriers indésirables).</p>
+    </div>
+
+    <div class="section box">
+      <strong>Optionnel mais recommandé :</strong>
+      <p>Rejoignez le canal Telegram privé pour des rappels calmes et du soutien.</p>
+      <a class="button" href="#" target="_blank">Rejoindre Telegram</a>
+    </div>
+
+    <div class="section small">
+      Programme éducatif uniquement. Ne remplace pas un avis médical.
+    </div>
+
+  </div>
+
+  <div class="footer">
+    ReForm50 • NDG, Montréal<br>
+    Questions: <a href="mailto:reform50@gmail.com">reform50@gmail.com</a>
+  </div>
+
+</div>
+
+<script>
+function toggleLang() {
+  document.getElementById('en').classList.toggle('hidden');
+  document.getElementById('fr').classList.toggle('hidden');
+}
+</script>
+
+</body>
+</html>
