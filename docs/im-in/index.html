@@ -515,5 +515,17 @@
     });
   })();
   </script>
+
+<script>
+document.querySelectorAll("form").forEach(function(form){
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    const params = new URLSearchParams(window.location.search);
+    const lang = params.get("lang") === "fr" ? "fr" : "en";
+    window.location.href = "/im-in/thank-you/?lang=" + lang;
+  });
+});
+</script>
+
 </body>
 </html>
