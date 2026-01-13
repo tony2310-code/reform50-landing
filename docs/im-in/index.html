@@ -343,8 +343,11 @@ text-decoration:none;font-weight:700;font-size:12px;line-height:1;color:inherit;
       <ul class="list" style="margin-top:10px;">
         <li data-i18n="pol_1">Only 10 clients per cycle</li>
         <li data-i18n="pol_2">$400 deposit to reserve your spot. Deposit is non refundable.</li>
-        <li data-i18n="pol_3">Full payment is due February 16 (one week before February 23)</li>
-</ul>
+        <li data-i18n="pol_3">Full payment is due one week before the program starts.</li>
+        <li data-i18n="pol_5">Minimum two week commitment once you start</li>
+        <li data-i18n="pol_6">If you stop early, you complete a two week transition period</li>
+        <li data-i18n="pol_7">No refunds for any reason</li>
+      </ul>
     </section>
 
     <section class="card" id="next">
@@ -371,7 +374,7 @@ text-decoration:none;font-weight:700;font-size:12px;line-height:1;color:inherit;
             <input type="text" name="email_address_check" value="" style="display:none" />
             <input type="hidden" name="locale" value="en" />
             <input type="hidden" name="html_type" value="simple" />
-            <button type="submit" class="btn btn-primary" style="width:100%;margin-top:10px;"><span data-i18n="ready_btn">Next step</span><span data-i18n="ready_label">I’m ready</span> — next step</button>
+            <button type="submit" class="btn btn-primary" style="width:100%;margin-top:10px;" data-i18n="ready_btn">I’m ready next step</button>
           </form>
 
           <div class="mini-line" style="margin-top:8px;" data-i18n="ready_note">No pressure. You can reply to the email if you prefer.</div>
@@ -387,7 +390,7 @@ text-decoration:none;font-weight:700;font-size:12px;line-height:1;color:inherit;
             <input type="text" name="email_address_check" value="" style="display:none" />
             <input type="hidden" name="locale" value="en" />
             <input type="hidden" name="html_type" value="simple" />
-            <button type="submit" class="btn btn-ghost" style="width:100%;margin-top:10px;"><span data-i18n="info_btn">Send me the details</span></button>
+            <button type="submit" class="btn btn-ghost" style="width:100%;margin-top:10px;" data-i18n="info_btn">Send me the details</button>
           </form>
 
           <div class="mini-line" style="margin-top:8px;" data-i18n="info_note">You’ll receive one calm email asking you to reply.</div>
@@ -448,7 +451,7 @@ document.addEventListener("DOMContentLoaded", function () {
       pol_title: "Clear, professional boundaries",
       pol_1: "Only 10 clients per cycle",
       pol_2: "$400 deposit to reserve your spot. Deposit is non refundable.",
-      pol_3: "Full payment is due February 16 (one week before February 23)",
+      pol_3: "Full payment is due one week before the program starts.",
       pol_5: "Minimum two week commitment once you start",
       pol_6: "If you stop early, you complete a two week transition period",
       pol_7: "No refunds for any reason",
@@ -465,14 +468,14 @@ document.addEventListener("DOMContentLoaded", function () {
       ready_title: "<span data-i18n="ready_label">I’m ready</span> to take the next step",
       ready_body: "Leave your email and I’ll reach out personally to coordinate a short alignment call.",
       ready_note: "No pressure. You can reply to the email if you prefer.",
-      ready_btn: "Prochaine étape",
+      ready_btn: "I’m ready next step",
       ready_btn: "Next step",
 
       info_label: "INFO",
       info_title: "I’d like more information",
       info_body: "Leave your email and I’ll reply personally. No pressure to decide.",
       info_note: "You’ll receive one calm email asking you to reply.",
-      info_btn: "Envoyez-moi les détails",
+      info_btn: "Send me the details",
       info_btn: "Send me the details",
 
       footer_name: "Coach Mark",
@@ -547,6 +550,9 @@ document.addEventListener("DOMContentLoaded", function () {
       footer_line1: "ReForm50 — Marche & force à NDG",
       footer_line2: "NDG, Montréal",
       footer_medical: "Note médicale: ReForm50 ne remplace pas un avis médical. Consultez votre médecin avant de commencer un nouveau programme d’exercice ou de marche, surtout si vous avez des conditions chroniques ou des blessures passées."
+      ready_btn: "Je suis prêt(e) prochaine étape",
+      info_btn: "Envoyez-moi les détails",
+      pol_3: "Paiement complet dû une semaine avant le début.",
     }
   };
 
