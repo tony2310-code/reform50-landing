@@ -367,6 +367,7 @@ text-decoration:none;font-weight:700;font-size:12px;line-height:1;color:inherit;
           <div class="photo-caption-body" data-i18n="ready_body">Leave your email and I’ll reach out personally to coordinate a short alignment call.</div>
 
           <form method="POST" action="https://f74184d5.sibforms.com/serve/MUIFAFbjuAnunAb6IRTJZrhTI_K3pa5PwXXdTGPUmwg2omo4Ig-WSEYbr4bYqad_4CWLoty-HweXwl2ZkSzqF5v-hT5BBV1Nidvw3UgEEFgiu1zfd-_N5rzLQ72OLh7vObpffseQYOROs-3-2up2A9AF9pRZViy-baxAMkKMApzR0LdncTmnwH-zUcLTtOpYr-5zUZREMKqtT-_O" style="margin-top:10px;">
+<input type="hidden" name="lang" id="LANG" value="en">
             <input type="email" name="EMAIL" required placeholder="Email" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.25);color:var(--text-main);font-size:14px;" />
             <input type="text" name="email_address_check" value="" style="display:none" />
             <input type="hidden" name="locale" value="en" />
@@ -383,6 +384,7 @@ text-decoration:none;font-weight:700;font-size:12px;line-height:1;color:inherit;
           <div class="photo-caption-body" data-i18n="info_body">Leave your email and I’ll reply personally. No pressure to decide.</div>
 
           <form method="POST" action="https://f74184d5.sibforms.com/serve/MUIFAHilo7Bn2UDzegzy5p1QiDpyjcU4EBIEJM9Bw9HdmK7ZsTyqqZ2XyCx1mO9fEYT0axf0pJMCpNRZjiBhTSDIzVtKGVEaOoI_FTDhhhbzOCSxmHWfRSEoLhmZXd2aT5R6oL7bDeWkL_hRdcrsyHbTcrbJXZF4z1LS2v1Tml31oQ7MZkxeFEApcAwyIyhnGs71dTu71JdhKmfK" style="margin-top:10px;">
+<input type="hidden" name="lang" id="LANG" value="en">
             <input type="email" name="EMAIL" required placeholder="Email" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.25);color:var(--text-main);font-size:14px;" />
             <input type="text" name="email_address_check" value="" style="display:none" />
             <input type="hidden" name="locale" value="en" />
@@ -586,6 +588,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   applyLang(lang);
 });
+</script>
+
+
+<script>
+(function(){
+  function setLang(){
+    var p=new URLSearchParams(window.location.search);
+    var lang=p.get('lang');
+    if(!lang){
+      try{lang=localStorage.getItem('rf_lang');}catch(e){}
+    }
+    lang=(lang==='fr')?'fr':'en';
+    document.querySelectorAll('#LANG').forEach(function(el){el.value=lang;});
+  }
+  document.addEventListener('DOMContentLoaded', setLang);
+})();
 </script>
 
 </body>
