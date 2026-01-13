@@ -350,7 +350,7 @@ text-decoration:none;font-weight:700;font-size:12px;line-height:1;color:inherit;
     <section class="card" id="next">
       <div class="kicker" data-i18n="next_kicker">NEXT STEP</div>
       <h2 class="section-title" data-i18n="next_title">What happens after you request a spot</h2>
-      <div class="mini-line" style="margin-top:6px;"><span data-i18n="next_sub">Both sides confirm fit before moving forward.</span></div>
+      <div class="mini-line" style="margin-top:6px;">Both sides confirm fit before moving forward.</div>
 
       <ol class="list" style="margin-top:10px;">
         <li data-i18n="next_1">You choose Ready or Info on this page</li>
@@ -371,7 +371,7 @@ text-decoration:none;font-weight:700;font-size:12px;line-height:1;color:inherit;
             <input type="text" name="email_address_check" value="" style="display:none" />
             <input type="hidden" name="locale" value="en" />
             <input type="hidden" name="html_type" value="simple" />
-            <button type="submit" class="btn btn-primary" style="width:100%;margin-top:10px;">Next step</button>
+            <button type="submit" class="btn btn-primary" style="width:100%;margin-top:10px;">I’m ready — next step</button>
           </form>
 
           <div class="mini-line" style="margin-top:8px;" data-i18n="ready_note">No pressure. You can reply to the email if you prefer.</div>
@@ -411,18 +411,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const I18N = {
     en: {
       badge: "NDG • WALKING FIRST RECOVERY",
-      hero_h1: "ReForm50 — One-on-One Walking-First Program",
-      hero_sub: "A calm, one-on-one program for NDG adults 50+ who want progress without pushing through pain.",
-      hero_btn_primary: "Request a one-on-one spot",
+      hero_h1: "ReForm50 — February 1-on-1 Walking-First Program",
+      hero_sub: "A calm, one-on-one program for NDG women 50+ who want progress without pushing through pain.",
+      hero_btn_primary: "Request a February One-on-One Spot",
       hero_btn_ghost: "Email me a question",
-      hero_mini: "Only 10 spots • NDG • Walking first",
+      hero_mini: "Only 10 spots • NDG • Walking first • Start date February 23",
 
-      micro_kicker: "ONE ON ONE PROGRAM",
-      micro_title: "Request your spot",
-      micro_sub: "This page is for people who already feel the program fits and want the next calm step.",
+      micro_kicker: "FEBRUARY 1 ON 1 PROGRAM",
+      micro_title: "Request your February spot",
+      micro_sub: "This page is for NDG women 50+ who already feel the program fits and want the next calm step.",
       micro_b1: "One on one coaching only",
       micro_b2: "Walking first, pain safe progression",
       micro_b3: "Limited to 10 clients per cycle",
+      micro_b4: "Start date: February 23",
 
       fit_kicker: "IS THIS FOR YOU",
       fit_title: "Who this is for, and who it is not for",
@@ -447,51 +448,50 @@ document.addEventListener("DOMContentLoaded", function () {
       pol_title: "Clear, professional boundaries",
       pol_1: "Only 10 clients per cycle",
       pol_2: "$400 deposit to reserve your spot. Deposit is non refundable.",
-      pol_3: "Full payment is due one week before the program starts.",
+      pol_3: "Full payment is due February 16 (one week before February 23)",
       pol_5: "Minimum two week commitment once you start",
+      pol_6: "If you stop early, you complete a two week transition period",
       pol_7: "No refunds for any reason",
 
       next_kicker: "NEXT STEP",
       next_title: "What happens after you request a spot",
-      next_sub: "<span data-i18n="next_sub">Both sides confirm fit before moving forward.</span>",
       next_1: "You choose Ready or Info on this page",
       next_2: "If you choose Ready, I reach out personally to coordinate a short call",
-      next_3: "If it is a fit, you reserve your place with the $400 deposit",
-      next_4: "You receive the next steps by email",
+      next_3: "If it is a fit, you reserve your place with the $400 deposit before February 2",
+      next_4: "You receive the welcome package with the full structure and next steps",
       cta_note: "No pressure. If it fits, we move forward calmly.",
 
       ready_label: "READY",
-      ready_title: "Next step",
+      ready_title: "I’m ready to take the next step",
       ready_body: "Leave your email and I’ll reach out personally to coordinate a short alignment call.",
-      ready_btn: "Next step",
       ready_note: "No pressure. You can reply to the email if you prefer.",
 
       info_label: "INFO",
-      info_title: "Send me the details",
+      info_title: "I’d like more information",
       info_body: "Leave your email and I’ll reply personally. No pressure to decide.",
-      info_btn: "Send me the details",
       info_note: "You’ll receive one calm email asking you to reply.",
 
       footer_name: "Coach Mark",
       footer_line1: "ReForm50 — NDG Walking & Strength",
       footer_line2: "NDG, Montréal",
-      footer_medical: "Medical note: ReForm50 does not replace medical advice. Always consult your doctor before beginning any new walking or exercise program, especially if you live with chronic conditions or past injuries."
+      footer_medical: "Medical note: ReForm50 does not replace medical advice. Always consult your doctor before beginning any new exercise or walking program, especially if you live with chronic conditions or past injuries."
     },
 
     fr: {
       badge: "NDG • RÉCUPÉRATION PAR LA MARCHE",
-      hero_h1: "ReForm50 — Programme individuel marche en premier",
-      hero_sub: "Un programme calme et individuel pour les adultes 50+ de NDG qui veulent progresser sans forcer à travers la douleur.",
-      hero_btn_primary: "Demander une place",
+      hero_h1: "ReForm50 — Programme Février 1 sur 1 Marche en premier",
+      hero_sub: "Un programme calme et individuel pour les femmes 50+ de NDG qui veulent progresser sans forcer à travers la douleur.",
+      hero_btn_primary: "Demander ma place de février",
       hero_btn_ghost: "M’écrire une question",
-      hero_mini: "Seulement 10 places • NDG • Marche en premier",
+      hero_mini: "Seulement 10 places • NDG • Marche en premier • Début le 23 février",
 
-      micro_kicker: "PROGRAMME INDIVIDUEL",
-      micro_title: "Demander votre place",
-      micro_sub: "Cette page est pour les personnes qui sentent déjà que le programme leur convient et veulent la prochaine étape, calmement.",
+      micro_kicker: "PROGRAMME 1 SUR 1 FÉVRIER",
+      micro_title: "Demander votre place de février",
+      micro_sub: "Cette page est pour les femmes 50+ de NDG qui sentent déjà que le programme leur convient et veulent la prochaine étape, calmement.",
       micro_b1: "Coaching individuel seulement",
       micro_b2: "Marche en premier, progression sécuritaire",
       micro_b3: "Limité à 10 clientes par cycle",
+      micro_b4: "Début le 23 février",
 
       fit_kicker: "EST CE POUR VOUS",
       fit_title: "Pour qui c’est fait, et pour qui ce n’est pas fait",
@@ -508,7 +508,7 @@ document.addEventListener("DOMContentLoaded", function () {
       how_title: "Structure simple chaque semaine",
       how_1: "Deux séances en personne par semaine",
       how_2: "Deux suivis par semaine",
-      how_3: "Suivi des Freedom Points pour la constance",
+      how_3: "Suivi des points Freedom pour la constance",
       how_4: "Progression sécuritaire seulement",
       how_note: "Les séances durent 45 minutes. Des marges de déplacement sont prévues pour que tout reste calme.",
 
@@ -516,33 +516,31 @@ document.addEventListener("DOMContentLoaded", function () {
       pol_title: "Des limites claires et professionnelles",
       pol_1: "Seulement 10 clientes par cycle",
       pol_2: "Dépôt de 400 $ pour réserver votre place. Le dépôt n’est pas remboursable.",
-      pol_3: "Paiement complet dû une semaine avant le début.",
+      pol_4: "Paiement complet dû le 16 février (une semaine avant le 23 février)",
       pol_5: "Engagement minimum de deux semaines une fois commencé",
+      pol_6: "Si vous arrêtez tôt, vous complétez une période de transition de deux semaines",
       pol_7: "Aucun remboursement, pour aucune raison",
 
       next_kicker: "PROCHAINE ÉTAPE",
       next_title: "Ce qui se passe après votre demande",
-      next_sub: "Les deux côtés confirment le fit avant d’avancer.",
       next_1: "Vous choisissez Prêt ou Info sur cette page",
       next_2: "Si vous choisissez Prêt, je vous écris pour planifier un court appel",
-      next_3: "Si c’est un bon fit, vous réservez avec le dépôt de 400 $",
-      next_4: "Vous recevez les prochaines étapes par courriel",
+      next_3: "Si c’est un bon fit, vous réservez avec le dépôt de 400 $ avant le 2 février",
+      next_4: "Vous recevez le kit de bienvenue avec la structure complète et les prochaines étapes",
       cta_note: "Sans pression. Si c’est un bon fit, on avance calmement.",
 
       ready_label: "PRÊT",
-      ready_title: "Prochaine étape",
+      ready_title: "Je suis prêt(e) à passer à la suite",
       ready_body: "Laissez votre courriel et je vous écrirai personnellement pour planifier un court appel.",
-      ready_btn: "Prochaine étape",
       ready_note: "Aucune pression. Vous pouvez répondre au courriel si vous préférez.",
 
       info_label: "INFO",
-      info_title: "Envoyez-moi les détails",
+      info_title: "Je veux plus d’information",
       info_body: "Laissez votre courriel et je vous répondrai personnellement. Aucune pression.",
-      info_btn: "Envoyez-moi les détails",
       info_note: "Vous recevrez un courriel calme vous invitant à répondre.",
 
       footer_name: "Coach Mark",
-      footer_line1: "ReForm50 — Marche et force à NDG",
+      footer_line1: "ReForm50 — Marche & force à NDG",
       footer_line2: "NDG, Montréal",
       footer_medical: "Note médicale: ReForm50 ne remplace pas un avis médical. Consultez votre médecin avant de commencer un nouveau programme d’exercice ou de marche, surtout si vous avez des conditions chroniques ou des blessures passées."
     }
@@ -550,7 +548,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function applyLang(lang) {
     const dict = I18N[lang] || I18N.en;
-
     document.documentElement.lang = (lang === "fr") ? "fr" : "en";
 
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
@@ -559,12 +556,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (dict[key] == null) return;
       el.textContent = dict[key];
     });
-
-    // update button texts that are not data-i18n (safety net)
-    const readyBtn = document.querySelector('#next .photo-card .btn.btn-primary');
-    const infoBtn = document.querySelector('#next .photo-card .btn.btn-ghost');
-    if (readyBtn) readyBtn.textContent = dict.ready_btn || readyBtn.textContent;
-    if (infoBtn) infoBtn.textContent = dict.info_btn || infoBtn.textContent;
 
     try { localStorage.setItem("rf_lang", (lang === "fr") ? "fr" : "en"); } catch (e) {}
 
@@ -593,9 +584,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const forced = getForcedLangFromUrl();
   if (forced) lang = forced;
 
-  // Ensure forms include lang in redirect by adding ?lang=xx to Brevo redirect via iframe approach if used
   applyLang(lang);
 });
 </script>
+
 </body>
 </html>
