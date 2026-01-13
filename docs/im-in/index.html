@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ReForm50 — February 1-on-1 — I’m In</title>
+  <title>ReForm50 — February 1-on-1 Walking-First Program</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -55,22 +55,13 @@
       white-space: nowrap;
     }
 
-    .lang-toggle {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--accent);
-      background: rgba(0,0,0,0.4);
-      color: var(--accent);
-      cursor: pointer;
-      position: fixed;
-      top: 16px;
-      right: 16px;
-      z-index: 9999;
-      white-space: nowrap;
+    .lang-toggle{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+    .lang-link{
+      display:inline-block;padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.14);
+      text-decoration:none;font-weight:800;font-size:12px;line-height:1;color:var(--text-main);
+      background:rgba(0,0,0,.25);cursor:pointer;
     }
+    .lang-link.active{border-color: var(--accent);color: var(--accent);background: rgba(0,0,0,0.4);}
 
     h1 { font-size: 26px; margin: 8px 0 4px; }
     .sub { font-size: 14px; color: var(--text-soft); }
@@ -90,7 +81,7 @@
       border: 1px solid var(--accent);
       cursor: pointer;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       text-decoration: none;
       text-align: center;
       transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.1s ease;
@@ -131,8 +122,6 @@
       border: 1px solid var(--border-soft);
     }
 
-    .card-soft { background: var(--card-soft); }
-
     .kicker {
       font-size: 11px;
       text-transform: uppercase;
@@ -148,10 +137,10 @@
     }
 
     .photo-card {
-      background: rgba(0,0,0,0.25);
+      background: rgba(255,255,255,.03);
       border-radius: 8px;
       padding: 10px;
-      border: 1px solid var(--border-soft);
+      border: 1px solid rgba(255,255,255,.08);
     }
 
     .photo-label {
@@ -162,310 +151,362 @@
       margin-bottom: 6px;
     }
 
-    .photo-box {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      border-radius: 6px;
-      overflow: hidden;
-      background: #000;
-      margin-bottom: 8px;
-    }
-
-    .photo-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .photo-caption-title {
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .photo-caption-body {
-      font-size: 13px;
-      color: var(--text-soft);
-    }
-
-    ul {
+    ul.list, ol.list {
       margin: 8px 0 0 18px;
       padding: 0;
       font-size: 13px;
       color: var(--text-soft);
     }
 
-    ul li { margin-bottom: 4px; }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
-    }
-
-    .pill {
-      font-size: 11px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid var(--accent-soft);
-      color: var(--accent);
-      background: rgba(0,0,0,0.3);
-    }
-
-    .gold { color: var(--accent); }
-    a.gold { text-decoration: none; }
-
-    .form-wrapper { margin-top: 12px; }
-    .form-row { margin-bottom: 10px; }
-
-    .form-label {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
+    ul.list li, ol.list li { margin-bottom: 4px; }
 
     .form-input {
-      width: 100%;
-      padding: 9px 10px;
-      border-radius: 4px;
-      border: 1px solid #c0ccd9;
-      font-size: 14px;
+      width:100%;
+      padding:10px 12px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,.15);
+      background:rgba(0,0,0,.25);
+      color:var(--text-main);
+      font-size:14px;
     }
 
+    .hidden{display:none;}
+
     @media (max-width: 768px) {
-      .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      .top-bar { flex-direction: column; align-items: flex-start; }
       h1 { font-size: 22px; }
       .two-col { grid-template-columns: 1fr; }
     }
-  
-.lang-toggle{position:fixed;top:14px;right:14px;z-index:99999;display:flex;gap:10px}
-.lang-link{display:inline-block;padding:8px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.15);
-text-decoration:none;font-weight:700;font-size:12px;line-height:1;color:inherit;background:rgba(255,255,255,.85)}
-.lang-link:active{transform:scale(.98)}
-
-</style>
+  </style>
 </head>
 
 <body>
   <div class="page">
-    <!-- TOP / HERO -->
     <header class="top-bar">
       <img src="reform50-logo.png" alt="ReForm50" class="logo" />
       <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
-        <div class="badge" data-i18n="badge">NDG • WALKING-FIRST RECOVERY</div>
-        <a class="lang-link" href="?lang=en">EN</a><a class="lang-link" href="?lang=fr">FR</a>
+        <div class="badge" id="badgeText">NDG • WALKING-FIRST RECOVERY</div>
+        <div class="lang-toggle">
+          <a class="lang-link" href="?lang=en" data-lang="en">EN</a>
+          <a class="lang-link" href="?lang=fr" data-lang="fr">FR</a>
+        </div>
       </div>
     </header>
 
-    
-    <div class="hero-copy">
-      <h1 data-i18n="hero_h1">ReForm50 — February 1-on-1 Walking-First Program</h1>
-      <p class="sub" data-i18n="hero_sub">
-        A calm, one-on-one program for NDG women 50+ who want progress without pushing through pain.
-      </p>
-      <div class="hero-buttons">
-        <a href="#next" class="btn btn-primary" data-i18n="hero_btn_primary">Request a February One-on-One Spot</a>
-        <a href="mailto:mark.gittens@reform50.com?subject=Question%20about%20ReForm50" class="btn btn-ghost" data-i18n="hero_btn_ghost">Email me a question</a>
-      </div>
-      <div class="mini-line" data-i18n="hero_mini">Only 10 spots • NDG • Walking first • Start date February 23</div>
-    </div>
+    <!-- ENGLISH -->
+    <div id="lang-en">
 
-    <!-- MICRO: I'M IN PAGE CONTENT -->
-    <section class="card" id="im-in">
-      <div class="kicker" data-i18n="micro_kicker">FEBRUARY 1 ON 1 PROGRAM</div>
-      <h2 class="section-title" data-i18n="micro_title">Request your February spot</h2>
-      <p class="sub" data-i18n="micro_sub">
-        This page is for NDG women 50+ who already feel the program fits and want the next calm step.
-      </p>
-
-      <div class="bullets">
-        <div class="bullet" data-i18n="micro_b1">One on one coaching only</div>
-        <div class="bullet" data-i18n="micro_b2">Walking first, pain safe progression</div>
-        <div class="bullet" data-i18n="micro_b3">Limited to 10 clients per cycle</div>
-        <div class="bullet" data-i18n="micro_b4">Start date: February 23</div>
-      </div>
-    </section>
-
-    <section class="card" id="fit">
-      <div class="kicker" data-i18n="fit_kicker">IS THIS FOR YOU</div>
-      <h2 class="section-title" data-i18n="fit_title">Who this is for, and who it is not for</h2>
-
-      <div class="two-col" style="margin-top:14px;">
-        <div class="photo-card" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);">
-          <div class="photo-label" data-i18n="fit_for_label">THIS IS FOR YOU IF</div>
-          <ul class="list">
-            <li data-i18n="fit_for_1">You want a safe walking first foundation</li>
-            <li data-i18n="fit_for_2">You want calm structure and clear steps</li>
-            <li data-i18n="fit_for_3">You want progress without pushing through pain</li>
-          </ul>
+      <div class="hero-copy">
+        <h1>ReForm50 — February 1-on-1 Walking-First Program</h1>
+        <p class="sub">A calm, one-on-one program for NDG women 50+ who want progress without pushing through pain.</p>
+        <div class="hero-buttons">
+          <a href="#next" class="btn btn-primary">Request a February One-on-One Spot</a>
+          <a href="mailto:mark.gittens@reform50.com?subject=Question%20about%20ReForm50" class="btn btn-ghost">Email me a question</a>
         </div>
-
-        <div class="photo-card" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);">
-          <div class="photo-label" data-i18n="fit_not_label">THIS IS NOT FOR YOU IF</div>
-          <ul class="list">
-            <li data-i18n="fit_not_1">You want group workouts or bootcamps</li>
-            <li data-i18n="fit_not_2">You want high intensity training</li>
-            <li data-i18n="fit_not_3">You want a program that ignores pain signals</li>
-          </ul>
-        </div>
+        <div class="mini-line">Only 10 spots • NDG • Walking first • Start date February 23</div>
       </div>
-    <div class="mini-line" style="margin-top:10px;">This program is for people ready to show up consistently, even on slow or uncomfortable days.</div>
-    </section>
 
-    <section class="card" id="how">
-      <div class="kicker" data-i18n="how_kicker">HOW IT WORKS</div>
-      <h2 class="section-title" data-i18n="how_title">Simple weekly structure</h2>
-
-      <ul class="list" style="margin-top:10px;">
-        <li data-i18n="how_1">Two in person sessions per week</li>
-        <li data-i18n="how_2">Two accountability check ins per week</li>
-        <li data-i18n="how_3">Freedom Points tracking for daily consistency</li>
-        <li data-i18n="how_4">Pain safe progression only</li>
+      <section class="card">
+        <div class="kicker">FEBRUARY 1 ON 1 PROGRAM</div>
+        <h2 class="section-title">Request your February spot</h2>
+        <p class="sub">This page is for NDG women 50+ who already feel the program fits and want the next calm step.</p>
+      <ul class="list">
+        <li>One on one coaching only</li>
+        <li>Walking first, pain safe progression</li>
+        <li>Limited to 10 clients per cycle</li>
+        <li>Start date: February 23</li>
       </ul>
 
-      <div class="mini-line" style="margin-top:10px;" data-i18n="how_note">
-        Sessions are 45 minutes. Travel buffers are built in so everything stays calm.
-        <br><span style="opacity:.7;font-size:14px;">Built from years of chronic pain recovery and real NDG coaching experience.</span>
-      </div>
-    </section>
+      </section>
 
-    <div class="mini-line" style="margin-bottom:14px;">Because this is one-on-one and capacity is limited, clear boundaries protect everyone involved.</div>
+      <!-- MISSING SECTION 1: IS THIS FOR YOU -->
+      <section class="card">
+        <div class="kicker">IS THIS FOR YOU</div>
+        <h2 class="section-title">Who this is for, and who it is not for</h2>
 
-    <section class="card" id="policies">
-      <div class="kicker" data-i18n="pol_kicker">COMMITMENT AND POLICIES</div>
-      <h2 class="section-title" data-i18n="pol_title">Clear, professional boundaries</h2>
+        <div class="two-col" style="margin-top:14px;">
+          <div class="photo-card">
+            <div class="photo-label">THIS IS FOR YOU IF</div>
+            <ul class="list">
+              <li>You want a safe walking first foundation</li>
+              <li>You want calm structure and clear steps</li>
+              <li>You want progress without pushing through pain</li>
+            </ul>
+          </div>
 
-      <ul class="list" style="margin-top:10px;">
-        <li data-i18n="pol_1">Only 10 clients per cycle</li>
-        <li data-i18n="pol_2">$400 deposit to reserve your spot. Deposit is non refundable.</li>
-        <li data-i18n="pol_3">Full payment is due one week before the program starts.</li>
-        <li data-i18n="pol_5">Minimum two week commitment once you start</li>
-        <li data-i18n="pol_6">If you stop early, you complete a two week transition period</li>
-        <li data-i18n="pol_7">No refunds for any reason</li>
-      </ul>
-    </section>
+          <div class="photo-card">
+            <div class="photo-label">THIS IS NOT FOR YOU IF</div>
+            <ul class="list">
+              <li>You want group workouts or bootcamps</li>
+              <li>You want high intensity training</li>
+              <li>You want a program that ignores pain signals</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mini-line" style="margin-top:10px;">This program is for people ready to show up consistently, even on slow or uncomfortable days.</div>
+      </section>
 
-    <section class="card" id="next">
-      <div class="kicker" data-i18n="next_kicker">NEXT STEP</div>
-      <h2 class="section-title" data-i18n="next_title">What happens after you request a spot</h2>
-      <div class="mini-line" style="margin-top:6px;">Both sides confirm fit before moving forward.</div>
+      <!-- MISSING SECTION 2: HOW IT WORKS -->
+      <section class="card">
+        <div class="kicker">HOW IT WORKS</div>
+        <h2 class="section-title">Simple weekly structure</h2>
 
-      <ol class="list" style="margin-top:10px;">
-        <li data-i18n="next_1">You choose Ready or Info on this page</li>
-        <li data-i18n="next_2">If you choose Ready, I reach out personally to coordinate a short call</li>
-        <li data-i18n="next_3">If it is a fit, you reserve your place with the $400 deposit before February 2</li>
-        <li data-i18n="next_4">You receive the welcome package with the full structure and next steps</li>
-      </ol>
+        <ul class="list" style="margin-top:10px;">
+          <li>Two in person sessions per week</li>
+          <li>Two accountability check ins per week</li>
+          <li>Freedom Points tracking for daily consistency</li>
+          <li>Pain safe progression only</li>
+        </ul>
 
-      
-      <div class="two-col" style="margin-top:14px;">
-        <div class="photo-card" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);">
-          <div class="photo-label" data-i18n="ready_label">READY</div>
-          <div class="photo-caption-title" data-i18n="ready_title">I’m ready to take the next step</div>
-          <div class="photo-caption-body" data-i18n="ready_body">Leave your email and I’ll reach out personally to coordinate a short alignment call.</div>
+        <div class="mini-line" style="margin-top:10px;">
+          Sessions are 45 minutes. Travel buffers are built in so everything stays calm.
+          <br><span style="opacity:.7;font-size:14px;">Built from years of chronic pain recovery and real NDG coaching experience.</span>
+        </div>
+      </section>
 
-          <form method="POST" action="https://f74184d5.sibforms.com/serve/MUIFAFbjuAnunAb6IRTJZrhTI_K3pa5PwXXdTGPUmwg2omo4Ig-WSEYbr4bYqad_4CWLoty-HweXwl2ZkSzqF5v-hT5BBV1Nidvw3UgEEFgiu1zfd-_N5rzLQ72OLh7vObpffseQYOROs-3-2up2A9AF9pRZViy-baxAMkKMApzR0LdncTmnwH-zUcLTtOpYr-5zUZREMKqtT-_O" style="margin-top:10px;">
-            <input type="email" name="EMAIL" required placeholder="Email" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.25);color:var(--text-main);font-size:14px;" />
-            <input type="text" name="email_address_check" value="" style="display:none" />
-            <input type="hidden" name="locale" value="en" />
-            <input type="hidden" name="html_type" value="simple" />
-            <button type="submit" class="btn btn-primary" style="width:100%;margin-top:10px;" data-i18n="ready_btn">I’m ready next step</button>
-          </form>
+      <div class="mini-line" style="margin-bottom:14px;">Because this is one-on-one and capacity is limited, clear boundaries protect everyone involved.</div>
 
-          <div class="mini-line" style="margin-top:8px;" data-i18n="ready_note">No pressure. You can reply to the email if you prefer.</div>
+      <section class="card" id="policies">
+        <div class="kicker">COMMITMENT AND POLICIES</div>
+        <h2 class="section-title">Clear, professional boundaries</h2>
+        <ul class="list">
+          <li>Only 10 clients per cycle</li>
+          <li>$400 deposit to reserve your spot. Deposit is non refundable.</li>
+          <li>Full payment is due February 16 (one week before February 23)</li>
+          <li>Minimum two week commitment once you start</li>
+          <li>If you stop early, you complete a two week transition period</li>
+          <li>No refunds for any reason</li>
+        </ul>
+      </section>
+
+      <section class="card" id="next">
+        <div class="kicker">NEXT STEP</div>
+        <h2 class="section-title">What happens after you request a spot</h2>
+        <div class="mini-line">Both sides confirm fit before moving forward.</div>
+
+        <ol class="list" style="margin-top:10px;">
+          <li>You choose Ready or Info on this page</li>
+          <li>If you choose Ready, I reach out personally to coordinate a short call</li>
+          <li>If it is a fit, you reserve your place with the $400 deposit before February 2</li>
+          <li>You receive the next steps by email</li>
+        </ol>
+
+        <div class="two-col" style="margin-top:14px;">
+          <div class="photo-card">
+            <div class="photo-label">READY</div>
+            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">I’m ready to take the next step</div>
+            <div style="font-size:13px;color:var(--text-soft);">Leave your email and I’ll reach out personally to coordinate a short alignment call.</div>
+            <form method="POST" action="#" style="margin-top:10px;">
+              <input class="form-input" type="email" name="EMAIL" placeholder="Email" required>
+              <button type="submit" class="btn btn-primary" style="width:100%;margin-top:10px;">I’m ready next step</button>
+            </form>
+            <div class="mini-line" style="margin-top:8px;">No pressure. You can reply to the email if you prefer.</div>
+          </div>
+
+          <div class="photo-card">
+            <div class="photo-label">INFO</div>
+            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">I’d like more information</div>
+            <div style="font-size:13px;color:var(--text-soft);">Leave your email and I’ll reply personally. No pressure to decide.</div>
+            <form method="POST" action="#" style="margin-top:10px;">
+              <input class="form-input" type="email" name="EMAIL" placeholder="Email" required>
+              <button type="submit" class="btn btn-ghost" style="width:100%;margin-top:10px;">Send me the details</button>
+            </form>
+            <div class="mini-line" style="margin-top:8px;">You’ll receive one calm email asking you to reply.</div>
+          </div>
         </div>
 
-        <div class="photo-card" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);">
-          <div class="photo-label" data-i18n="info_label">INFO</div>
-          <div class="photo-caption-title" data-i18n="info_title">I’d like more information</div>
-          <div class="photo-caption-body" data-i18n="info_body">Leave your email and I’ll reply personally. No pressure to decide.</div>
+        <div class="mini-line" style="margin-top:10px;">No pressure. If it fits, we move forward calmly.</div>
+      </section>
 
-          <form method="POST" action="https://f74184d5.sibforms.com/serve/MUIFAHilo7Bn2UDzegzy5p1QiDpyjcU4EBIEJM9Bw9HdmK7ZsTyqqZ2XyCx1mO9fEYT0axf0pJMCpNRZjiBhTSDIzVtKGVEaOoI_FTDhhhbzOCSxmHWfRSEoLhmZXd2aT5R6oL7bDeWkL_hRdcrsyHbTcrbJXZF4z1LS2v1Tml31oQ7MZkxeFEApcAwyIyhnGs71dTu71JdhKmfK" style="margin-top:10px;">
-            <input type="email" name="EMAIL" required placeholder="Email" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.25);color:var(--text-main);font-size:14px;" />
-            <input type="text" name="email_address_check" value="" style="display:none" />
-            <input type="hidden" name="locale" value="en" />
-            <input type="hidden" name="html_type" value="simple" />
-            <button type="submit" class="btn btn-ghost" style="width:100%;margin-top:10px;" data-i18n="info_btn">Send me the details</button>
-          </form>
-
-          <div class="mini-line" style="margin-top:8px;" data-i18n="info_note">You’ll receive one calm email asking you to reply.</div>
+      <div style="margin:18px auto 0 auto;padding:14px 16px;border-top:1px solid rgba(255,255,255,.08);color:#c8d3df;font-size:12px;line-height:1.45;">
+        <div style="font-weight:800;color:#e9f0f7;">Coach Mark</div>
+        <div>ReForm50 — NDG Walking & Strength</div>
+        <div>NDG, Montréal</div>
+        <div style="margin-top:10px;">
+          Medical note: ReForm50 does not replace medical advice. Always consult your doctor before beginning any new walking or exercise program, especially if you live with chronic conditions or past injuries.
         </div>
       </div>
 
-      <div class="mini-line" style="margin-top:10px;" data-i18n="cta_note">No pressure. If it fits, we move forward calmly.</div>
-    </section>
-  <div style="max-width:980px;margin:18px auto 0 auto;padding:14px 16px;border-top:1px solid rgba(255,255,255,.08);color:#c8d3df;font-size:12px;line-height:1.45;">
-    <div style="font-weight:800;color:#e9f0f7;" data-i18n="footer_name">Coach Mark</div>
-    <div data-i18n="footer_line1">ReForm50 — NDG Walking & Strength</div>
-    <div data-i18n="footer_line2">NDG, Montréal</div>
-    <div style="margin-top:10px;" data-i18n="footer_medical">
-      Medical note: ReForm50 does not replace medical advice. Always consult your doctor before beginning any new walking or exercise program, especially if you live with chronic conditions or past injuries.
     </div>
+
+    <!-- FRENCH -->
+    <div id="lang-fr" class="hidden">
+
+      <div class="hero-copy">
+        <h1>ReForm50 — Programme individuel de février marche en premier</h1>
+        <p class="sub">Un programme calme et individuel pour les femmes 50+ de NDG qui veulent progresser sans forcer à travers la douleur.</p>
+        <div class="hero-buttons">
+          <a href="#next-fr" class="btn btn-primary">Demander une place pour février</a>
+          <a href="mailto:mark.gittens@reform50.com?subject=Question%20sur%20ReForm50" class="btn btn-ghost">M’écrire une question</a>
+        </div>
+        <div class="mini-line">Seulement 10 places • NDG • Marche en premier • Début le 23 février</div>
+      </div>
+
+      <section class="card">
+        <div class="kicker">PROGRAMME FÉVRIER 1 SUR 1</div>
+        <h2 class="section-title">Demander votre place de février</h2>
+        <p class="sub">Cette page est pour les femmes 50+ de NDG qui sentent déjà que le programme leur convient et veulent la prochaine étape, calmement.</p>
+      </section>
+
+      <section class="card">
+        <div class="kicker">EST CE POUR VOUS</div>
+        <h2 class="section-title">Pour qui c’est fait, et pour qui ce n’est pas fait</h2>
+
+        <div class="two-col" style="margin-top:14px;">
+          <div class="photo-card">
+            <div class="photo-label">C’EST POUR VOUS SI</div>
+            <ul class="list">
+              <li>Vous voulez une base sécuritaire axée sur la marche</li>
+              <li>Vous voulez une structure calme et des étapes claires</li>
+              <li>Vous voulez progresser sans pousser à travers la douleur</li>
+            </ul>
+          </div>
+
+          <div class="photo-card">
+            <div class="photo-label">CE N’EST PAS POUR VOUS SI</div>
+            <ul class="list">
+              <li>Vous voulez des entraînements de groupe ou un bootcamp</li>
+              <li>Vous voulez de la haute intensité</li>
+              <li>Vous voulez un programme qui ignore les signaux de douleur</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mini-line" style="margin-top:10px;">Ce programme est pour les personnes prêtes à être constantes, même les jours lents ou inconfortables.</div>
+      </section>
+
+      <section class="card">
+        <div class="kicker">COMMENT ÇA MARCHE</div>
+        <h2 class="section-title">Structure simple chaque semaine</h2>
+
+        <ul class="list" style="margin-top:10px;">
+          <li>Deux séances en personne par semaine</li>
+          <li>Deux suivis par semaine</li>
+          <li>Suivi des Freedom Points pour la constance</li>
+          <li>Progression sécuritaire seulement</li>
+        </ul>
+
+        <div class="mini-line" style="margin-top:10px;">
+          Les séances durent 45 minutes. Des marges de déplacement sont prévues pour que tout reste calme.
+          <br><span style="opacity:.7;font-size:14px;">Basé sur des années de récupération de douleur chronique et d’expérience de coaching à NDG.</span>
+        </div>
+      </section>
+
+      <div class="mini-line" style="margin-bottom:14px;">Parce que c’est individuel et la capacité est limitée, des limites claires protègent tout le monde.</div>
+
+      <section class="card">
+        <div class="kicker">ENGAGEMENT ET POLITIQUES</div>
+        <h2 class="section-title">Des limites claires et professionnelles</h2>
+        <ul class="list">
+          <li>Seulement 10 clientes par cycle</li>
+          <li>Dépôt de 400 $ pour réserver votre place. Le dépôt n’est pas remboursable.</li>
+          <li>Paiement complet dû le 16 février (une semaine avant le 23 février)</li>
+          <li>Engagement minimum de deux semaines une fois commencé</li>
+          <li>Si vous arrêtez tôt, vous complétez une période de transition de deux semaines</li>
+          <li>Aucun remboursement, pour aucune raison</li>
+        </ul>
+      </section>
+
+      <section class="card" id="next-fr">
+        <div class="kicker">PROCHAINE ÉTAPE</div>
+        <h2 class="section-title">Ce qui se passe après votre demande</h2>
+        <div class="mini-line">Les deux côtés confirment le fit avant d’avancer.</div>
+
+        <ol class="list" style="margin-top:10px;">
+          <li>Vous choisissez Prêt ou Info sur cette page</li>
+          <li>Si vous choisissez Prêt, je vous écris pour planifier un court appel</li>
+          <li>Si c’est un bon fit, vous réservez avec le dépôt de 400 $ avant le 2 février</li>
+          <li>Vous recevez les prochaines étapes par courriel</li>
+        </ol>
+
+        <div class="two-col" style="margin-top:14px;">
+          <div class="photo-card">
+            <div class="photo-label">PRÊT</div>
+            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">Je suis prêt(e) pour la prochaine étape</div>
+            <div style="font-size:13px;color:var(--text-soft);">Laissez votre courriel et je vous écrirai personnellement pour planifier un court appel.</div>
+            <form method="POST" action="#" style="margin-top:10px;">
+              <input class="form-input" type="email" name="EMAIL" placeholder="Courriel" required>
+              <button type="submit" class="btn btn-primary" style="width:100%;margin-top:10px;">Je suis prêt(e) prochaine étape</button>
+            </form>
+            <div class="mini-line" style="margin-top:8px;">Aucune pression. Vous pouvez répondre au courriel si vous préférez.</div>
+          </div>
+
+          <div class="photo-card">
+            <div class="photo-label">INFO</div>
+            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">Je veux plus d’information</div>
+            <div style="font-size:13px;color:var(--text-soft);">Laissez votre courriel et je vous répondrai personnellement. Aucune pression.</div>
+            <form method="POST" action="#" style="margin-top:10px;">
+              <input class="form-input" type="email" name="EMAIL" placeholder="Courriel" required>
+              <button type="submit" class="btn btn-ghost" style="width:100%;margin-top:10px;">Envoyez-moi les détails</button>
+            </form>
+            <div class="mini-line" style="margin-top:8px;">Vous recevrez un courriel calme vous invitant à répondre.</div>
+          </div>
+        </div>
+
+        <div class="mini-line" style="margin-top:10px;">Sans pression. Si c’est un bon fit, on avance calmement.</div>
+      </section>
+
+      <div style="margin:18px auto 0 auto;padding:14px 16px;border-top:1px solid rgba(255,255,255,.08);color:#c8d3df;font-size:12px;line-height:1.45;">
+        <div style="font-weight:800;color:#e9f0f7;">Coach Mark</div>
+        <div>ReForm50 — Marche & force à NDG</div>
+        <div>NDG, Montréal</div>
+        <div style="margin-top:10px;">
+          Note médicale: ReForm50 ne remplace pas un avis médical. Consultez votre médecin avant de commencer un nouveau programme d’exercice ou de marche, surtout si vous avez des conditions chroniques ou des blessures passées.
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const I18N = {
-    en: {
-      ready_btn: "I’m ready next step",
-      info_btn: "Send me the details",
-      pol_1: "Only 10 clients per cycle", pol_2: "$400 deposit to reserve your spot. Deposit is non refundable.", pol_3: "Full payment is due one week before the program starts.", pol_5: "Minimum two week commitment once you start", pol_6: "If you stop early, you complete a two week transition period", pol_7: "No refunds for any reason"
-    },
-    fr: {
-      ready_btn: "Je suis prêt(e) prochaine étape",
-      info_btn: "Envoyez-moi les détails",
-      pol_1: "Seulement 10 clientes par cycle",
-      pol_2: "Dépôt de 400 $ pour réserver votre place. Le dépôt n’est pas remboursable.",
-      pol_3: "Paiement complet dû une semaine avant le début.",
-      pol_5: "Engagement minimum de deux semaines une fois commencé",
-      pol_6: "Si vous arrêtez tôt, vous complétez une période de transition de deux semaines",
-      pol_7: "Aucun remboursement, pour aucune raison"
+  <script>
+  (function(){
+    function getLang(){
+      var p = new URLSearchParams(window.location.search);
+      var l = (p.get('lang') || '').toLowerCase();
+      if(l === 'fr' || l === 'en') return l;
+      try { return (localStorage.getItem('rf_lang') === 'fr') ? 'fr' : 'en'; } catch(e) {}
+      return 'en';
     }
-  };
 
-  function getLang() {
-    try {
-      const p = new URLSearchParams(window.location.search);
-      const l = (p.get("lang") || "").toLowerCase();
-      if (l === "fr" || l === "en") return l;
-    } catch(e) {}
-    try {
-      return (localStorage.getItem("rf_lang") === "fr") ? "fr" : "en";
-    } catch(e) {}
-    return "en";
-  }
+    function setLang(lang){
+      var en = document.getElementById('lang-en');
+      var fr = document.getElementById('lang-fr');
+      var links = document.querySelectorAll('[data-lang]');
+      if(lang === 'fr'){
+        en.classList.add('hidden');
+        fr.classList.remove('hidden');
+        document.documentElement.lang = 'fr';
+        document.getElementById('badgeText').textContent = "NDG • RÉCUPÉRATION PAR LA MARCHE";
+        try { localStorage.setItem('rf_lang','fr'); } catch(e) {}
+      } else {
+        fr.classList.add('hidden');
+        en.classList.remove('hidden');
+        document.documentElement.lang = 'en';
+        document.getElementById('badgeText').textContent = "NDG • WALKING-FIRST RECOVERY";
+        try { localStorage.setItem('rf_lang','en'); } catch(e) {}
+      }
 
-  function applyLang(lang) {
-    const dict = I18N[lang] || I18N.en;
-    document.documentElement.lang = (lang === "fr") ? "fr" : "en";
+      links.forEach(function(a){
+        a.classList.toggle('active', a.getAttribute('data-lang') === lang);
+      });
+    }
 
-    document.querySelectorAll("[data-i18n]").forEach(function(el) {
-      const key = el.getAttribute("data-i18n");
-      if (!key) return;
-      if (dict[key] == null) return;
-      el.textContent = dict[key];
+    document.addEventListener('DOMContentLoaded', function(){
+      var lang = getLang();
+      setLang(lang);
+
+      document.querySelectorAll('[data-lang]').forEach(function(a){
+        a.addEventListener('click', function(e){
+          e.preventDefault();
+          setLang(a.getAttribute('data-lang'));
+          try {
+            var url = new URL(window.location.href);
+            url.searchParams.set('lang', a.getAttribute('data-lang'));
+            window.history.replaceState({}, '', url.toString());
+          } catch(e) {}
+        });
+      });
     });
-
-    try { localStorage.setItem("rf_lang", lang); } catch(e) {}
-
-    // Highlight lang links
-    document.querySelectorAll(".lang-link").forEach(function(a){
-      const h = (a.getAttribute("href") || "");
-      const isFR = h.indexOf("lang=fr") > -1;
-      const isEN = h.indexOf("lang=en") > -1;
-      a.style.opacity = ((lang === "fr" && isFR) || (lang === "en" && isEN)) ? "1" : ".6";
-    });
-  }
-
-  applyLang(getLang());
-});
-</script>
-
+  })();
+  </script>
 </body>
 </html>
