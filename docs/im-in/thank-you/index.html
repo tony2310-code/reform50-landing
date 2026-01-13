@@ -2,166 +2,129 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>ReForm50 — You’re In</title>
+<title>ReForm50 — Thank You</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  background: #f7f9f9;
-  color: #1e1e1e;
-  line-height: 1.6;
+:root{
+  --bg:#021920;
+  --card:#06242e;
+  --accent:#ffc94a;
+  --text-main:#f4f7fb;
+  --text-soft:#c8d3df;
+  --border-soft:#164452;
 }
-.container {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 32px 20px 60px;
-}
-.logo {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.logo img {
-  max-width: 140px;
-}
-.lang {
-  text-align: right;
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-.lang a {
-  color: #077278;
-  text-decoration: none;
-  font-weight: 500;
-}
-h1 {
-  color: #077278;
-  font-size: 28px;
-  margin-bottom: 12px;
-}
-.section {
-  margin-top: 28px;
-}
-.box {
-  background: #ffffff;
-  border-radius: 8px;
-  padding: 20px;
-  margin-top: 16px;
-}
-.button {
-  display: inline-block;
-  margin-top: 14px;
-  padding: 12px 18px;
-  background: #077278;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 600;
-}
-.small {
-  font-size: 14px;
-  color: #555;
-}
-.footer {
-  margin-top: 40px;
-  font-size: 13px;
-  color: #666;
-}
-.hidden {
-  display: none;
-}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text-main);line-height:1.6}
+.container{max-width:720px;margin:0 auto;padding:32px 20px 60px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.logo img{max-width:150px;height:auto}
+.lang button{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.14);padding:8px 10px;border-radius:999px;color:var(--accent);font-weight:800;cursor:pointer;font-size:12px}
+h1{font-size:28px;margin:0 0 10px}
+.sub{color:var(--text-soft);margin:0 0 14px}
+.box{background:var(--card);border:1px solid var(--border-soft);border-radius:10px;padding:22px;margin-top:18px}
+.button{display:inline-block;margin-top:14px;padding:12px 18px;background:var(--accent);color:#1a1608;text-decoration:none;border-radius:999px;font-weight:800}
+.small{font-size:13px;color:var(--text-soft);margin-top:18px}
+.footer{margin-top:34px;font-size:12px;color:var(--text-soft)}
+.hidden{display:none}
+a{color:var(--accent);text-decoration:none}
 </style>
 </head>
-
 <body>
 <div class="container">
-
-  <div class="logo">
-    <img src="../reform50-logo.png" alt="ReForm50">
+  <div class="header">
+    <div class="logo"><img src="../reform50-logo.png" alt="ReForm50"></div>
+    <div class="lang"><button type="button" id="langBtn">FR</button></div>
   </div>
 
-  <div class="lang">
-    <a href="#" onclick="toggleLang();return false;">Français</a>
-  </div>
-
-  <!-- ENGLISH -->
   <div id="en">
-
     <h1>You’re in.</h1>
-    <p>Thank you for joining ReForm50. You’ve taken the first calm, safe step.</p>
+    <p class="sub">Thank you. Please check your email for the next step.</p>
 
     <div class="box">
       <strong>What happens next:</strong>
-      <ul>
-        <li><strong>Today:</strong> You’ll receive your welcome email and Starter Plan (PDF).</li>
-        <li><strong>Tomorrow:</strong> Day 1 instructions and your Freedom Points tracker.</li>
-        <li><strong>This week:</strong> Gentle daily walks and safe movements.</li>
+      <ul style="margin:10px 0 0 18px;color:var(--text-soft);">
+        <li><strong>Today:</strong> You’ll receive a calm email confirming the next step.</li>
+        <li><strong>After that:</strong> If it’s a fit, we coordinate a short call.</li>
       </ul>
     </div>
 
-    <div class="section">
-      <strong>Important:</strong>
-      <p>Please check your inbox (and spam folder) for an email from ReForm50.</p>
-    </div>
-
-    <div class="section box">
+    <div class="box">
       <strong>Optional but recommended:</strong>
-      <p>Join the private Telegram channel for calm reminders and support.</p>
+      <p class="sub" style="margin-top:8px;">Join Telegram for calm reminders and support.</p>
       <a class="button" href="#" target="_blank">Join Telegram</a>
     </div>
 
-    <div class="section small">
-      This is an educational walking and movement program. It does not replace medical advice.
-    </div>
-
+    <p class="small">This is an educational walking and movement program. It does not replace medical advice.</p>
   </div>
 
-  <!-- FRENCH -->
   <div id="fr" class="hidden">
-
     <h1>Vous êtes inscrit(e).</h1>
-    <p>Merci d’avoir rejoint ReForm50. Vous venez de faire un premier pas calme et sécuritaire.</p>
+    <p class="sub">Merci. Vérifiez votre courriel pour la prochaine étape.</p>
 
     <div class="box">
       <strong>Voici ce qui se passe ensuite :</strong>
-      <ul>
-        <li><strong>Aujourd’hui :</strong> Vous recevrez l’email de bienvenue et le plan de départ (PDF).</li>
-        <li><strong>Demain :</strong> Les instructions du Jour 1 et le suivi des Freedom Points.</li>
-        <li><strong>Cette semaine :</strong> Des marches douces et des mouvements sécuritaires.</li>
+      <ul style="margin:10px 0 0 18px;color:var(--text-soft);">
+        <li><strong>Aujourd’hui :</strong> Vous recevrez un courriel calme confirmant la prochaine étape.</li>
+        <li><strong>Ensuite :</strong> Si c’est un bon fit, on planifie un court appel.</li>
       </ul>
     </div>
 
-    <div class="section">
-      <strong>Important :</strong>
-      <p>Veuillez vérifier votre boîte courriel (et les courriers indésirables).</p>
-    </div>
-
-    <div class="section box">
+    <div class="box">
       <strong>Optionnel mais recommandé :</strong>
-      <p>Rejoignez le canal Telegram privé pour des rappels calmes et du soutien.</p>
+      <p class="sub" style="margin-top:8px;">Rejoignez Telegram pour des rappels calmes et du soutien.</p>
       <a class="button" href="#" target="_blank">Rejoindre Telegram</a>
     </div>
 
-    <div class="section small">
-      Programme éducatif uniquement. Ne remplace pas un avis médical.
-    </div>
-
+    <p class="small">Programme éducatif uniquement. Ne remplace pas un avis médical.</p>
   </div>
 
   <div class="footer">
     ReForm50 • NDG, Montréal<br>
-    Questions: <a href="mailto:reform50@gmail.com">reform50@gmail.com</a>
+    Questions: <a href="mailto:mark.gittens@reform50.com">mark.gittens@reform50.com</a>
   </div>
-
 </div>
 
 <script>
-function toggleLang() {
-  document.getElementById('en').classList.toggle('hidden');
-  document.getElementById('fr').classList.toggle('hidden');
-}
+(function(){
+  function getLang(){
+    var p=new URLSearchParams(window.location.search);
+    var l=(p.get('lang')||'').toLowerCase();
+    if(l==='fr'||l==='en') return l;
+    try { return (localStorage.getItem('rf_lang')==='fr')?'fr':'en'; } catch(e) {}
+    return 'en';
+  }
+  function setLang(lang){
+    var en=document.getElementById('en');
+    var fr=document.getElementById('fr');
+    var btn=document.getElementById('langBtn');
+    if(lang==='fr'){
+      en.classList.add('hidden'); fr.classList.remove('hidden');
+      if(btn) btn.textContent='EN';
+      document.documentElement.lang='fr';
+      try{localStorage.setItem('rf_lang','fr');}catch(e){}
+    }else{
+      fr.classList.add('hidden'); en.classList.remove('hidden');
+      if(btn) btn.textContent='FR';
+      document.documentElement.lang='en';
+      try{localStorage.setItem('rf_lang','en');}catch(e){}
+    }
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    setLang(getLang());
+    var btn=document.getElementById('langBtn');
+    if(btn){
+      btn.addEventListener('click', function(){
+        var next=(document.documentElement.lang==='fr')?'en':'fr';
+        setLang(next);
+        try{
+          var url=new URL(window.location.href);
+          url.searchParams.set('lang', next);
+          window.history.replaceState({},'',url.toString());
+        }catch(e){}
+      });
+    }
+  });
+})();
 </script>
-
 </body>
 </html>
